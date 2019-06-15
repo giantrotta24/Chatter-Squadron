@@ -1,0 +1,24 @@
+{
+  "name": "chatter-squadron-hub",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "author": "Gianfranco Trotta, Dylan Thomson, Nick Yopko, Brett Bender, Matt Urian",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  }
+}
