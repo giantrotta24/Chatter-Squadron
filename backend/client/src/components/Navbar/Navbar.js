@@ -15,25 +15,25 @@ export const Navbar = () => {
             <a className='nav-link d-lg-none' href='#'>LOGO GOES HERE</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fas fa-desktop green' /> Video</a>
+            <a className='nav-link' href='#'><NavIcon icon='fas fa-desktop ltgreen' /> Video</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='far fa-play-circle red' /> Audio</a>
+            <a className='nav-link' href='#'><NavIcon icon='far fa-play-circle orange' /> Audio</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='https://www.facebook.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-facebook-f dark-blue' /> Facebook</a>
+            <a className='nav-link' href='https://www.facebook.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-facebook-f blue' /> Facebook</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='https://twitter.com/chattersquadron' target='blank'><NavIcon icon='fab fa-twitter light-blue' /> Twitter</a>
+            <a className='nav-link' href='https://twitter.com/chattersquadron' target='blank'><NavIcon icon='fab fa-twitter ltblue' /> Twitter</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='https://www.instagram.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-instagram brown' /> Instagram</a>
+            <a className='nav-link' href='https://www.instagram.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-instagram darkred' /> Instagram</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='blank'><NavIcon icon='fab fa-youtube crimson' /> YouTube</a>
+            <a className='nav-link' href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='blank'><NavIcon icon='fab fa-youtube red' /> YouTube</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fas fa-rss sea-green' /> RSS</a>
+            <a className='nav-link' href='#'><NavIcon icon='fas fa-rss green' /> RSS</a>
           </li>
         </ul>
       </div>
