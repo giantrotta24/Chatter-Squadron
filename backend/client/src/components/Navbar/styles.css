@@ -1,0 +1,64 @@
+:root {
+  --black: #0b0b0b;
+  --white : #f8f8f8;
+  --olive: #7c6900;
+  --green: #55b94a;
+  --red: #ca493b;
+  --dark-blue: #005d76;
+  --light-blue: #00c9f3;
+  --brown: #6f2037;
+  --crimson: #d12b35;
+  --sea-green: #30753b;
+}
+
+.green {
+  color: var(--green);
+}
+
+.red {
+  color: var(--red);
+}
+
+.dark-blue {
+  color: var(--dark-blue);
+}
+
+.light-blue {
+  color: var(--light-blue);
+}
+
+.brown {
+  color: var(--brown);
+}
+
+.crimson {
+  color: var(--crimson);
+}
+
+.sea-green {
+  color: var(--sea-green);
+}
+
+.navbar {
+  background-color: var(--black);
+
+  /* TODO: Border color? */
+  border: 2px solid var(--olive);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
+.nav-link {
+  text-transform: uppercase;
+}
+
+.navbar-brand, .nav-link {
+  color: var(--white) !important;
+  font-size: 1.5em;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+  /* TODO: Choose a decent hover color */
+  color: var(--white) !important;
+  opacity: 0.75;
+}

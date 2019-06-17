@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Container = ({ fluid, children }) => {
-  return <div className={`container${fluid ? '-fluid' : ''}`}>{children}</div>;
+  return <div className={`container${fluid ? '-fluid' : ''} px-0`}>{children}</div>;
 };
 
 export const Row = ({ fluid, children }) => {
