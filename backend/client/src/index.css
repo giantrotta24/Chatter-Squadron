@@ -40,6 +40,59 @@ body, #root {
 }
 
 
+/* TEXT COLORS */
+.yellow {
+  color: var(--yellow);
+}
 
+.black {
+  color: var(--black);
+}
 
+.peach {
+  color: var(--peach);
+}
 
+.orange {
+  color: var(--orange);
+}
+
+.red {
+  color: var(--red);
+}
+
+.darkred {
+  color: var(--darkred);
+}
+
+.ltblue {
+  color: var(--ltblue);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.darkblue {
+  color: var(--darkblue);
+}
+
+.blackblue {
+  color: var(--blackblue);
+}
+
+.xltgreen {
+  color: var(--xltgreen);
+}
+
+.ltgreen {
+  color: var(--ltgreen);
+}
+
+.green {
+  color: var(--green);
+}
+
+.darkgreen {
+  color: var(--darkgreen);
+}
