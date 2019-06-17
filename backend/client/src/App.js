@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { Container } from './components/Grid/Grid';
+import { Container, Row, Col } from './components/Grid/Grid';
 import { Navbar } from './components/Navbar/Navbar';
 
 function App() {

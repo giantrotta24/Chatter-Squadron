@@ -1,28 +1,48 @@
 import React from 'react';
+import './styles.css';
 
-export const Navbar = ({ fluid, children }) => {
+// TODO: Links refs, fix mobile responsiveness (wait for logo), add logo to brand, replace placeholder icons, center links on mobile
+export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">Navbar</a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
+    <nav className='navbar navbar-dark navbar-expand-lg py-3'>
+      <a className='navbar-brand d-none d-lg-block' href='/'>LOGO GOES HERE</a>
+      <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+        <span className='navbar-toggler-icon'></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item active">
-            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+      <div className='collapse navbar-collapse d-lg-flex justify-content-lg-end' id='navbarNav'>
+      {/* {console.log(document.querySelector('.navbar-collapse'), "eh")} */}
+      {/* <div className={'collapse navbar-collapse' + document.querySelector('.navbar-collapse').classList.contains('.show') ? 'd-flex justify-content-center justify-content-lg-end' : ''} id='navbarNav'> */}
+        <ul className='navbar-nav'>
+          <li className='nav-item'>
+            <a className='nav-link d-lg-none' href='#'>LOGO GOES HERE</a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Features</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='fas fa-desktop green' /> Video</a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Pricing</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='far fa-play-circle red' /> Audio</a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link disabled" href="#">Disabled</a>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='fab fa-facebook-f dark-blue' /> Facebook</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='fab fa-twitter light-blue' /> Twitter</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='fab fa-instagram brown' /> Instagram</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='fab fa-youtube crimson' /> YouTube</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link' href='#'><NavIcon icon='fas fa-rss sea-green' /> RSS</a>
           </li>
         </ul>
       </div>
     </nav>
   );
+};
+
+export const NavIcon = (icon) => {
+  return <i className={icon.icon + ' mx-3 d-inline d-lg-none'}></i>;
 };
