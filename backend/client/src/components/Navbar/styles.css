@@ -57,7 +57,6 @@
   font-size: 1.5em;
 }
 
-
 .navbar-brand:hover, .nav-link:hover {
   /* TODO: Choose a decent hover color */
   color: var(--white) !important;

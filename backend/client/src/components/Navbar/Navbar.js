@@ -10,8 +10,6 @@ export const Navbar = () => {
         <span className='navbar-toggler-icon'></span>
       </button>
       <div className='collapse navbar-collapse d-lg-flex justify-content-lg-end' id='navbarNav'>
-      {/* {console.log(document.querySelector('.navbar-collapse'), "eh")} */}
-      {/* <div className={'collapse navbar-collapse' + document.querySelector('.navbar-collapse').classList.contains('.show') ? 'd-flex justify-content-center justify-content-lg-end' : ''} id='navbarNav'> */}
         <ul className='navbar-nav'>
           <li className='nav-item'>
             <a className='nav-link d-lg-none' href='#'>LOGO GOES HERE</a>
@@ -23,16 +21,16 @@ export const Navbar = () => {
             <a className='nav-link' href='#'><NavIcon icon='far fa-play-circle red' /> Audio</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fab fa-facebook-f dark-blue' /> Facebook</a>
+            <a className='nav-link' href='https://www.facebook.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-facebook-f dark-blue' /> Facebook</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fab fa-twitter light-blue' /> Twitter</a>
+            <a className='nav-link' href='https://twitter.com/chattersquadron' target='blank'><NavIcon icon='fab fa-twitter light-blue' /> Twitter</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fab fa-instagram brown' /> Instagram</a>
+            <a className='nav-link' href='https://www.instagram.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-instagram brown' /> Instagram</a>
           </li>
           <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fab fa-youtube crimson' /> YouTube</a>
+            <a className='nav-link' href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='blank'><NavIcon icon='fab fa-youtube crimson' /> YouTube</a>
           </li>
           <li className='nav-item'>
             <a className='nav-link' href='#'><NavIcon icon='fas fa-rss sea-green' /> RSS</a>
