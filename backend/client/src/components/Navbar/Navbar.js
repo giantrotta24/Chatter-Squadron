@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-// TODO: Links refs, fix mobile responsiveness (wait for logo), add logo to brand, replace placeholder icons, center links on mobile
+// TODO: Links refs, fix mobile responsiveness (wait for logo), add logo to brand, replace placeholder icons
 export const Navbar = () => {
   return (
     <nav className='navbar navbar-dark navbar-expand-lg py-3'>
@@ -12,7 +12,7 @@ export const Navbar = () => {
       <div className='collapse navbar-collapse d-lg-flex justify-content-lg-end' id='navbarNav'>
         <ul className='navbar-nav'>
           <li className='nav-item'>
-            <a className='nav-link d-lg-none' href='#'>LOGO GOES HERE</a>
+            <a className='nav-link d-lg-none text-center' href='#'>LOGO GOES HERE</a>
           </li>
           <li className='nav-item'>
             <a className='nav-link' href='#'><NavIcon icon='fas fa-desktop ltgreen' /> Video</a>

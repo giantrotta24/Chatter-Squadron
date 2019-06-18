@@ -9,6 +9,7 @@
   text-transform: uppercase;
 }
 
+
 .navbar-brand, .nav-link {
   color: var(--white) !important;
   font-size: 1.5em;
@@ -19,3 +20,10 @@
   color: var(--white) !important;
   opacity: 0.75;
 }
+
+@media (max-width: 992px) { 
+  .navbar-nav {
+    width: 300px;
+    margin: auto;
+  }  
+ }
