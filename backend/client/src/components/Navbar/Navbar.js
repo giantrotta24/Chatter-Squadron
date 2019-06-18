@@ -11,30 +11,51 @@ export const Navbar = () => {
       </button>
       <div className='collapse navbar-collapse d-lg-flex justify-content-lg-end' id='navbarNav'>
         <ul className='navbar-nav'>
-          <li className='nav-item'>
-            <a className='nav-link d-lg-none text-center' href='#'>LOGO GOES HERE</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fas fa-desktop ltgreen' /> Video</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='far fa-play-circle orange' /> Audio</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='https://www.facebook.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-facebook-f blue' /> Facebook</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='https://twitter.com/chattersquadron' target='blank'><NavIcon icon='fab fa-twitter ltblue' /> Twitter</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='https://www.instagram.com/chattersquadron/' target='blank'><NavIcon icon='fab fa-instagram darkred' /> Instagram</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='blank'><NavIcon icon='fab fa-youtube red' /> YouTube</a>
-          </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#'><NavIcon icon='fas fa-rss green' /> RSS</a>
-          </li>
+          <NavItem 
+            linkClasses='d-lg-none text-center' 
+            href='#' 
+            linkText='LOGO GOES HERE'
+          />
+          <NavItem 
+            href='#' 
+            icon='fas fa-desktop ltgreen' 
+            linkText='Video'
+          />
+          <NavItem
+            href='#' 
+            icon='far fa-play-circle orange' 
+            linkText='Audio'
+          />
+          <NavItem 
+            href='https://www.facebook.com/chattersquadron/' 
+            icon='fab fa-facebook-f blue' 
+            linkText='Facebook'
+            newTab={true}
+          />
+          <NavItem 
+            href='https://twitter.com/chattersquadron' 
+            icon='fab fa-twitter ltblue' 
+            linkText='Twitter'
+            newTab={true}
+          />
+          <NavItem 
+            href='https://www.instagram.com/chattersquadron/' 
+            icon='fab fa-instagram darkred' 
+            linkText='Instagram'
+            newTab={true}
+          />
+          <NavItem 
+            href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' 
+            icon='fab fa-youtube red' 
+            linkText='YouTube'
+            newTab={true}
+          />
+          <NavItem 
+            href='#' 
+            icon='fas fa-rss green' 
+            linkText='RSS'
+            newTab={true}
+          />
         </ul>
       </div>
     </nav>
@@ -44,3 +65,17 @@ export const Navbar = () => {
 export const NavIcon = (props) => {
   return <i className={props.icon + ' mx-3 d-inline d-lg-none'}></i>;
 };
+
+export const NavItem = (props) => {
+  return (
+    <li className='nav-item'>
+      <a 
+        className={'nav-link ' + props.linkClasses} 
+        href={props.href} 
+        target={props.newTab ? '_blank' : '_self'}
+      >
+        {props.icon ? <NavIcon icon={props.icon}/> : ''} {props.linkText}
+      </a>
+    </li>
+  );
+}
