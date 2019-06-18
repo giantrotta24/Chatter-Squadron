@@ -41,6 +41,6 @@ export const Navbar = () => {
   );
 };
 
-export const NavIcon = (icon) => {
-  return <i className={icon.icon + ' mx-3 d-inline d-lg-none'}></i>;
+export const NavIcon = (props) => {
+  return <i className={props.icon + ' mx-3 d-inline d-lg-none'}></i>;
 };
