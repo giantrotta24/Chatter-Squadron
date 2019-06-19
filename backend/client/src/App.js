@@ -3,9 +3,11 @@ import React from 'react';
 import './App.css';
 import { Container, Row, Col } from './components/Grid/Grid';
 import { Navbar } from './components/Navbar/Navbar';
+import {HomeJumbo} from './components/HomeJumbo/HomeJumbo';
 
 function App() {
   return (
+    <div id="App">
     <Container 
       fluid={true} 
       children={
@@ -13,6 +15,8 @@ function App() {
       }
     >
     </Container>
+    <HomeJumbo />
+    </div>
   );
 }
 
