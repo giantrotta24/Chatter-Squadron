@@ -5,11 +5,6 @@
   font-weight: 300;
 }
 
-.nav-link {
-  text-transform: uppercase;
-}
-
-
 .navbar-brand, .nav-link {
   color: var(--white) !important;
   font-size: 1.5em;
@@ -21,9 +16,27 @@
   opacity: 0.75;
 }
 
+.navbar-brand img {
+  width: 100px;
+  margin-right: 1em;
+}
+
+.nav-link img {
+  width: 50px;
+}
+
+.brand-text {
+  font-size: 0.5em;
+  font-style: italic;
+}
+
+.brand-text-sm {
+  font-size: 1.25em;
+}
+
 @media (max-width: 992px) { 
   .navbar-nav {
-    width: 300px;
+    width: 320px;
     margin: auto;
   }  
  }
