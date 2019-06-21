@@ -21,41 +21,48 @@ export const Navbar = () => {
             linkText='Chatter Squadron'
             logo={logo}
           />
-          <NavItem 
+          <NavItem
+            linkClasses='text-uppercase'
             href='#' 
             icon='fas fa-desktop ltgreen' 
             linkText='Video'
           />
           <NavItem
+            linkClasses='text-uppercase'
             href='#' 
             icon='far fa-play-circle orange' 
             linkText='Audio'
           />
-          <NavItem 
+          <NavItem
+            linkClasses='text-uppercase'
             href='https://www.facebook.com/chattersquadron/' 
             icon='fab fa-facebook-f blue' 
             linkText='Facebook'
             newTab={true}
           />
-          <NavItem 
+          <NavItem
+            linkClasses='text-uppercase'
             href='https://twitter.com/chattersquadron' 
             icon='fab fa-twitter ltblue' 
             linkText='Twitter'
             newTab={true}
           />
-          <NavItem 
+          <NavItem
+            linkClasses='text-uppercase'
             href='https://www.instagram.com/chattersquadron/' 
             icon='fab fa-instagram darkred' 
             linkText='Instagram'
             newTab={true}
           />
-          <NavItem 
+          <NavItem
+            linkClasses='text-uppercase'
             href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' 
             icon='fab fa-youtube red' 
             linkText='YouTube'
             newTab={true}
           />
-          <NavItem 
+          <NavItem
+            linkClasses='text-uppercase'
             href='#' 
             icon='fas fa-rss green' 
             linkText='RSS'
