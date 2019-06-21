@@ -1,11 +1,15 @@
 import React from 'react';
 import './styles.css';
+import logo from '../../assets/images/Chatter white transparent.png';
 
-// TODO: Links refs, fix mobile responsiveness (wait for logo), add logo to brand, replace placeholder icons
+// TODO: Links refs, fix mobile responsiveness (navbar layout breaks around 1090px width), replace placeholder icons (maybe), large brand above navbar on mobile
 export const Navbar = () => {
   return (
     <nav className='navbar navbar-dark navbar-expand-lg py-3'>
-      <a className='navbar-brand d-none d-lg-block' href='/'>LOGO GOES HERE</a>
+      <a className='navbar-brand d-none d-lg-block' href='/'>
+        <img className='img-responsive' src={logo} alt='Chatter Squadron Logo' />
+        <div className='d-inline-block brand-text text-center'>Your Home For Star Wars <br/> Fun &amp; Positivity</div>
+      </a>
       <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
         <span className='navbar-toggler-icon'></span>
       </button>
@@ -15,6 +19,7 @@ export const Navbar = () => {
             linkClasses='d-lg-none text-center' 
             href='#' 
             linkText='LOGO GOES HERE'
+            imgSrc='../../../public/assets/images/Chatter white transparent.png'
           />
           <NavItem 
             href='#' 

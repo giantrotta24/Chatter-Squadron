@@ -21,6 +21,16 @@
   opacity: 0.75;
 }
 
+.navbar-brand img {
+  width: 100px;
+  margin-right: 1em;
+}
+
+.brand-text {
+  font-size: 0.5em;
+  font-style: italic;
+}
+
 @media (max-width: 992px) { 
   .navbar-nav {
     width: 300px;
