@@ -16,10 +16,10 @@ export const Navbar = () => {
       <div className='collapse navbar-collapse d-lg-flex justify-content-lg-end' id='navbarNav'>
         <ul className='navbar-nav'>
           <NavItem 
-            linkClasses='d-lg-none text-center' 
+            linkClasses='d-lg-none brand-text-sm' 
             href='#' 
-            linkText='LOGO GOES HERE'
-            imgSrc='../../../public/assets/images/Chatter white transparent.png'
+            linkText='Chatter Squadron'
+            logo={logo}
           />
           <NavItem 
             href='#' 
@@ -79,6 +79,7 @@ export const NavItem = (props) => {
         href={props.href} 
         target={props.newTab ? '_blank' : '_self'}
       >
+        {props.logo ? <img className='img-responsive mr-2' src={props.logo} alt='Chatter Squadron Logo'/> :''}
         {props.icon ? <NavIcon icon={props.icon}/> : ''} {props.linkText}
       </a>
     </li>
