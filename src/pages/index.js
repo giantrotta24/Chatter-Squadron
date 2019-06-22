@@ -8,7 +8,7 @@ import { PodcastPlayer } from '../components/PodcastPlayer/PodcastPlayer';
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    {/* <HomeJumbo /> */}
+    <HomeJumbo />
     <PodcastPlayer />
   </Layout>
 )
