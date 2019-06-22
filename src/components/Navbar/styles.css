@@ -19,6 +19,7 @@
 .navbar-brand img {
   width: 100px;
   margin-right: 1em;
+  margin-bottom: 0;
 }
 
 .nav-link img {
