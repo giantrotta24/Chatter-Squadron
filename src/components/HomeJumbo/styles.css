@@ -20,8 +20,11 @@
 }
 
 @media (max-width: 1200px) {
-  .jumbotron {
+  .jumbotron.jumbotron-fluid {
     justify-content: center;
+    background-color: none;
+    background-image: none;
+    background-color: var(--niceblack);
   }
 
   .home-jumbo {
