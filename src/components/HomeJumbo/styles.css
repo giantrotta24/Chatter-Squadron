@@ -1,8 +1,11 @@
-.jumbotron {
+@import '../layout.css';
+
+.jumbotron.jumbotron-fluid {
   background-image: linear-gradient(90deg, var(--darkblue), var(--darkred));
   display: grid;
   grid-gap: 20px;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .home-jumbo {
@@ -19,7 +22,7 @@
   border-radius: 25px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   .jumbotron.jumbotron-fluid {
     justify-content: center;
     background-color: none;
