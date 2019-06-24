@@ -28,6 +28,7 @@ export class MoreVideos extends Component {
         'https://source.unsplash.com/random/600x400',
         'https://source.unsplash.com/random/600x400',
       ],
+      displayWhenCollasped: 2,
     }
   }
 
@@ -45,11 +46,8 @@ export class MoreVideos extends Component {
           <h2 className='more-videos-header'>More Videos</h2>
           <div className='container more-videos'>
             {this.state.isExpanded 
-              ? (this.state.videos.map(v => <Video src={v} />))
-              : <React.Fragment>
-                  <Video src={this.state.videos[0]} /> 
-                  <Video src={this.state.videos[1]} /> 
-              </React.Fragment>
+              ? this.state.videos.map(v => <Video src={v} />)
+              : this.state.videos.slice(0, this.state.displayWhenCollasped).map(v => <Video src={v} />)
             }
           </div>
           <div 
