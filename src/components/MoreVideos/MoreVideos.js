@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'gatsby';
+// import Link from 'gatsby';
 
 import '../index.css';
 
@@ -23,7 +23,7 @@ export class MoreVideos extends Component {
           <div className="container more-videos">
             <div className="video">
               <img
-                src="https://source.unsplash.com/random/400x400?v=1"
+                src="https://source.unsplash.com/random/600x400?v=1"
                 alt="video thumbnail"
                 className="video-thumbnail"
               />
@@ -31,7 +31,7 @@ export class MoreVideos extends Component {
             </div>
             <div className="video">
               <img
-                src="https://source.unsplash.com/random/400x400?v=2"
+                src="https://source.unsplash.com/random/600x400?v=2"
                 alt="video thumbnail"
                 className="video-thumbnail"
               />
@@ -39,7 +39,7 @@ export class MoreVideos extends Component {
             </div>
             <div className="video">
               <img
-                src="https://source.unsplash.com/random/400x400?v=3"
+                src="https://source.unsplash.com/random/600x400?v=3"
                 alt="video thumbnail"
                 className="video-thumbnail"
               />
@@ -47,7 +47,7 @@ export class MoreVideos extends Component {
             </div>
             <div className="video">
               <img
-                src="https://source.unsplash.com/random/400x400?v=4"
+                src="https://source.unsplash.com/random/600x400?v=4"
                 alt="video thumbnail"
                 className="video-thumbnail"
               />
@@ -55,7 +55,7 @@ export class MoreVideos extends Component {
             </div>
             <div className="video">
               <img
-                src="https://source.unsplash.com/random/400x400?v=5"
+                src="https://source.unsplash.com/random/600x400?v=5"
                 alt="video thumbnail"
                 className="video-thumbnail"
               />
@@ -63,7 +63,7 @@ export class MoreVideos extends Component {
             </div>
             <div className="video">
               <img
-                src="https://source.unsplash.com/random/400x400?v=6"
+                src="https://source.unsplash.com/random/600x400?v=6"
                 alt="video thumbnail"
                 className="video-thumbnail"
               />
