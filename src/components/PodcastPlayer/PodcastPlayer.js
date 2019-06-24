@@ -17,7 +17,7 @@ export const PodcastPlayer = (props) => {
         oallowfullscreen 
         msallowfullscreen
       />
-      <iframe src="https://open.spotify.com/embed-podcast/episode/65mMmsN1KC9dx8MfJrWG4o" title="spotify player" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      {/* <iframe src="https://open.spotify.com/embed-podcast/episode/65mMmsN1KC9dx8MfJrWG4o" title="spotify player" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> */}
     </div>
     );
 };

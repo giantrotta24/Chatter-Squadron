@@ -1,9 +1,12 @@
 @import '../layout.css';
+
 .navbar {
   background-color: #111111;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   border-bottom: 1px solid var(--yellow);
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .navbar-brand, .nav-link {
