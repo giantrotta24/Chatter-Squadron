@@ -1,16 +1,17 @@
-.jumbotron {
+@import '../layout.css';
+
+.jumbotron.jumbotron-fluid {
   background-image: linear-gradient(90deg, var(--darkblue), var(--darkred));
   display: grid;
   grid-gap: 20px;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .home-jumbo {
   display: grid;
   grid-gap: 50px;
   grid-template-columns: 400px 1fr;
-  align-items: center;
-  justify-content: center;
 }
 
 #logoPic {
@@ -19,9 +20,18 @@
   border-radius: 25px;
 }
 
-@media (max-width: 1200px) {
-  .jumbotron {
+#homeVideo{
+  width: 611px;
+  height: 400px;
+}
+
+
+@media (max-width: 1000px) {
+  .jumbotron.jumbotron-fluid {
     justify-content: center;
+    background-color: none;
+    background-image: none;
+    background-color: var(--niceblack);
   }
 
   .home-jumbo {
@@ -42,9 +52,24 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .jumbotron .jumbotron-fluid {
     justify-content: center;
+  }
 
+  #homeVideo{
+    width: 400px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 450px) {
+  .jumbotron .jumbotron-fluid {
+    justify-content: center;
+  }
+
+  #homeVideo{
+    width: 200px;
+    height: 150px;
   }
 }
