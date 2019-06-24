@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 // import Link from 'gatsby';
 import './styles.css';
 
-import '../index.css';
-
 /*
 Container to hold more videos
 grid
@@ -15,18 +13,38 @@ video title
 with lazy loading
 */
 
+// TODO Call YouTube api to get the latest videos from channel; if they hit show more maybe get more videos
+// TODO Fix issue where videos overlap each other from 1200px until mobile collapse
 export class MoreVideos extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isExpanded: false,
       videos: [
-        'https://source.unsplash.com/random/600x400',
-        'https://source.unsplash.com/random/600x400',
-        'https://source.unsplash.com/random/600x400',
-        'https://source.unsplash.com/random/600x400',
-        'https://source.unsplash.com/random/600x400',
-        'https://source.unsplash.com/random/600x400',
+        {
+          link: 'https://www.youtube.com/embed/a6v8ZPkBVRs',
+          title: 'Title'
+        },
+        {
+          link: 'https://www.youtube.com/embed/cdcmoyAzY88',
+          title: 'Another title'
+        },
+        {
+          link: 'https://www.youtube.com/embed/M0QxHPuPBrE',
+          title: 'More title stuff'
+        },
+        {
+          link: 'https://www.youtube.com/embed/u0eEouNEtV0',
+          title: 'Yet another title'
+        },
+        {
+          link: 'https://www.youtube.com/embed/P0vg6RF4xxs',
+          title: 'Title 2.123.01'
+        },
+        {
+          link: 'https://www.youtube.com/embed/tUffUqNJA3k',
+          title: 'Best title of all time for real it is great'
+        },
       ],
       displayWhenCollasped: 2,
     }
@@ -46,8 +64,8 @@ export class MoreVideos extends Component {
           <h2 className='more-videos-header'>More Videos</h2>
           <div className='container more-videos'>
             {this.state.isExpanded 
-              ? this.state.videos.map(v => <Video src={v} />)
-              : this.state.videos.slice(0, this.state.displayWhenCollasped).map(v => <Video src={v} />)
+              ? this.state.videos.map(v => <Video src={v.link} title={v.title} key={v.link} />)
+              : this.state.videos.slice(0, this.state.displayWhenCollasped).map(v => <Video src={v.link} title={v.title} key={v.link} />)
             }
           </div>
           <div 
@@ -62,16 +80,20 @@ export class MoreVideos extends Component {
   }
 }
 
-// Change to embed or video or something, images are placeholders
+// TODO Move this to its own component folder
 const Video = (props) => {
   return (
     <div className='video'>
-      <img
+      <iframe 
+        width="560" 
+        height="315" 
         src={props.src}
-        alt='video thumbnail'
-        className='video-thumbnail'
+        frameborder="0" 
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        title={props.title}
       />
-      <div className='video-title'>{props.title ? this.props.title : 'Video Title'}</div>
+      <div className='video-title'>{props.title ? props.title : 'Video Title'}</div>
     </div>
   );
 }
