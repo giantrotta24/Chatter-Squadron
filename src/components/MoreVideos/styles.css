@@ -32,6 +32,10 @@
   
 }
 
+.video-thumbnail {
+  max-width: 300px;
+}
+
 .video-title {
     margin-bottom: 1.45rem;
 }
@@ -53,4 +57,5 @@
 .show-more:hover {
     color: white;
     font-weight: 400;
+    cursor: pointer;
 }

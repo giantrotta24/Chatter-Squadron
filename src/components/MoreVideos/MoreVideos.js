@@ -16,64 +16,64 @@ with lazy loading
 */
 
 export class MoreVideos extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isExpanded: false,
+      videos: [
+        'https://source.unsplash.com/random/600x400',
+        'https://source.unsplash.com/random/600x400',
+        'https://source.unsplash.com/random/600x400',
+        'https://source.unsplash.com/random/600x400',
+        'https://source.unsplash.com/random/600x400',
+        'https://source.unsplash.com/random/600x400',
+      ],
+    }
+  }
+
+  toggleExpand = () => {
+    console.log('toggle');
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
-        <div className="wrapper">
-          <h2 className="more-videos-header">More Videos</h2>
-          <div className="container more-videos">
-            <div className="video">
-              <img
-                src="https://source.unsplash.com/random/600x400?v=1"
-                alt="video thumbnail"
-                className="video-thumbnail"
-              />
-              <div className="video-title">Video Name</div>
-            </div>
-            <div className="video">
-              <img
-                src="https://source.unsplash.com/random/600x400?v=2"
-                alt="video thumbnail"
-                className="video-thumbnail"
-              />
-              <div className="video-title">Video Name</div>
-            </div>
-            <div className="video">
-              <img
-                src="https://source.unsplash.com/random/600x400?v=3"
-                alt="video thumbnail"
-                className="video-thumbnail"
-              />
-              <div className="video-title">Video Name</div>
-            </div>
-            <div className="video">
-              <img
-                src="https://source.unsplash.com/random/600x400?v=4"
-                alt="video thumbnail"
-                className="video-thumbnail"
-              />
-              <div className="video-title">Video Name</div>
-            </div>
-            <div className="video">
-              <img
-                src="https://source.unsplash.com/random/600x400?v=5"
-                alt="video thumbnail"
-                className="video-thumbnail"
-              />
-              <div className="video-title">Video Name</div>
-            </div>
-            <div className="video">
-              <img
-                src="https://source.unsplash.com/random/600x400?v=6"
-                alt="video thumbnail"
-                className="video-thumbnail"
-              />
-              <div className="video-title">Video Name</div>
-            </div>
+        <div className='wrapper'>
+          <h2 className='more-videos-header'>More Videos</h2>
+          <div className='container more-videos'>
+            {this.state.isExpanded 
+              ? (this.state.videos.map(v => <Video src={v} />))
+              : <React.Fragment>
+                  <Video src={this.state.videos[0]} /> 
+                  <Video src={this.state.videos[1]} /> 
+              </React.Fragment>
+            }
           </div>
-          <div className="show-more">Show More //</div>
+          <div 
+            className='show-more' 
+            onClick={this.toggleExpand}
+          >
+            {!this.state.isExpanded ? 'Show More' : 'Show Less'}
+          </div>
         </div>
       </React.Fragment>
     );
   }
+}
+
+// Change to embed or video or something, images are placeholders
+const Video = (props) => {
+  return (
+    <div className='video'>
+      <img
+        src={props.src}
+        alt='video thumbnail'
+        className='video-thumbnail'
+      />
+      <div className='video-title'>{props.title ? this.props.title : 'Video Title'}</div>
+    </div>
+  );
 }
