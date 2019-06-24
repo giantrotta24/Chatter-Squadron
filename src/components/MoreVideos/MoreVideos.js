@@ -51,7 +51,6 @@ export class MoreVideos extends Component {
   }
 
   toggleExpand = () => {
-    console.log('toggle');
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
