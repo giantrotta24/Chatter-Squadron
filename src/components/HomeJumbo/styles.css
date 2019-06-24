@@ -12,8 +12,6 @@
   display: grid;
   grid-gap: 50px;
   grid-template-columns: 400px 1fr;
-  align-items: center;
-  justify-content: center;
 }
 
 #logoPic {
@@ -21,6 +19,12 @@
   width: 400px;
   border-radius: 25px;
 }
+
+#homeVideo{
+  width: 611px;
+  height: 400px;
+}
+
 
 @media (max-width: 1000px) {
   .jumbotron.jumbotron-fluid {
@@ -48,9 +52,24 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .jumbotron .jumbotron-fluid {
     justify-content: center;
+  }
 
+  #homeVideo{
+    width: 400px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 450px) {
+  .jumbotron .jumbotron-fluid {
+    justify-content: center;
+  }
+
+  #homeVideo{
+    width: 200px;
+    height: 150px;
   }
 }
