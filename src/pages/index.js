@@ -10,8 +10,14 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <HomeJumbo />
-    <MoreVideos />
-    <PodcastPlayer />
+    <div className="row">
+      <div className="col-12">
+        <PodcastPlayer />
+      </div>
+      <div className="col-12 order-lg-first">
+        <MoreVideos />
+      </div>
+    </div>
   </Layout>
 )
 
