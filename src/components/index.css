@@ -190,9 +190,31 @@ img {
 }
 
 .show-more:hover {
-  color: white;
-  font-weight: 400;
-  cursor: pointer;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* MOBILE BRAND */
+.mobile-brand {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  font-style: italic;
+  padding: 1em;
+}
+
+.mobile-brand-logo {
+  max-width: 75%;
+  max-height: 300px;
+  margin: 1em auto;
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .mobile-brand {
+    display: none;
+  }
 }
 
 /* Podcast Player Section */
