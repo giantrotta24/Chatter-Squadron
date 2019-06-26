@@ -1,7 +1,7 @@
 @import './layout.css';
 
 img {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* NavBar */
@@ -14,12 +14,14 @@ img {
   position: sticky;
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand,
+.nav-link {
   color: var(--white) !important;
   font-size: 1.5em;
 }
 
-.navbar-brand:hover, .nav-link:hover {
+.navbar-brand:hover,
+.nav-link:hover {
   /* TODO: Choose a decent hover color */
   color: var(--white) !important;
   opacity: 0.75;
@@ -44,18 +46,18 @@ img {
   font-size: 1.25em;
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
   .navbar-nav {
     width: 320px;
     margin: auto;
-  }  
- }
+  }
+}
 
- @media (max-width: 1205px) and (min-width: 993px) {
+@media (max-width: 1205px) and (min-width: 993px) {
   .nav-link {
     font-size: 1em;
   }
- }
+}
 
 /* HomeJumbo */
 .jumbotron.jumbotron-fluid {
@@ -78,11 +80,10 @@ img {
   border-radius: 25px;
 }
 
-#homeVideo{
+#homeVideo {
   width: 611px;
   height: 400px;
 }
-
 
 @media (max-width: 1000px) {
   .jumbotron.jumbotron-fluid {
@@ -115,7 +116,7 @@ img {
     justify-content: center;
   }
 
-  #homeVideo{
+  #homeVideo {
     width: 400px;
     height: 300px;
   }
@@ -126,7 +127,7 @@ img {
     justify-content: center;
   }
 
-  #homeVideo{
+  #homeVideo {
     width: 200px;
     height: 150px;
   }
@@ -164,7 +165,6 @@ img {
   font-weight: 100;
   font-family: 'Raleway Light', sans-serif;
   font-size: 1.7em;
-  
 }
 
 .video-thumbnail {
@@ -172,27 +172,108 @@ img {
 }
 
 .video-title {
-    margin-bottom: 1.45rem;
+  margin-bottom: 1.45rem;
 }
 
 .video-title:hover {
-    color: white;
-    font-weight: 400;
+  color: white;
+  font-weight: 400;
 }
 
 .show-more {
-    justify-self: right;
-    margin-right: 1.5em;
-    margin-bottom: 1em;
-    font-size: 1.7em;
-    font-family: 'Raleway Light', sans-serif;
-    font-style: italic;
+  justify-self: right;
+  margin-right: 1.5em;
+  margin-bottom: 1em;
+  font-size: 1.7em;
+  font-family: 'Raleway Light', sans-serif;
+  font-style: italic;
 }
 
 .show-more:hover {
-    color: white;
-    font-weight: 400;
-    cursor: pointer;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
 }
 
-/* More Videos Section */
+/* Podcast Player Section */
+.podcast-header {
+  font-family: 'Raleway SemiBold', sans-serif;
+  font-style: italic;
+  line-height: 1.3;
+  border-bottom: 2px solid rgb(199, 199, 199);
+  border-top: 2px solid rgb(199, 199, 199);
+  margin-bottom: 25px;
+}
+
+.wrapper-pod {
+  padding: 20px;
+  background-color: var(--black);
+  color: rgb(199, 199, 199);
+  display: grid;
+}
+
+.my-4 {
+  border: var(--yellow) solid 2px;
+  padding-top: 30px;
+  background-color: white;
+}
+
+/* footer */
+footer {
+  text-decoration: none;
+  background-color: var(--niceblack);
+  color: white;
+  border-top: solid 1px var(--yellow);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  /* height: 20px; */
+}
+
+.flex-footer ul {
+  border: 1px solid black;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-footer li {
+  flex: 3;
+}
+
+.flex-footer .social {
+  flex: 1;
+  /* height: 20px; */
+}
+
+.flex-footer .db-cp {
+  align-self: center;
+  padding-left: 45px;
+}
+.flex-footer .cs-cp {
+  align-self: center;
+  padding-left: 45px;
+}
+
+footer > ul > li > a {
+  color: white;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-decoration: none;
+  /* background:rgba(0,0,0,0.2); */
+  padding: 20px 5px;
+  display: inline-block;
+  /* width: 100%; */
+  text-align: center;
+  transition: all 0.5s;
+}
+
+footer > ul > li > a:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--ltblue);
+}

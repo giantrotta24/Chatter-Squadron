@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Navbar } from "./Navbar/Navbar"
+import Footer from "./Footer"
 
 import "./layout.css"
 
@@ -16,9 +17,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar></Navbar>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Chatter Squadron
-        </footer>
+        <Footer />
     </>
   )
 }
