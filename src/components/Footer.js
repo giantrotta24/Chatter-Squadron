@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 import FacebookLogo from '../images/facebook-brands.svg';
 import TwitterLogo from '../images/twitter-brands.svg';
