@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 import FacebookLogo from '../images/facebook-brands.svg';
 import TwitterLogo from '../images/twitter-brands.svg';
@@ -15,16 +15,16 @@ const Footer = () => {
       <ul>
         <li className="cs-cp">
           {' '}
-          © {new Date().getFullYear()}, <Link className="footer-link" to="#">Chatter Squadron </Link>
+          © {new Date().getFullYear()}, <a className="footer-link"href="#">Chatter Squadron </a>
         </li>
         <li className="social"><a className="footer-link"href="https://www.facebook.com/chattersquadron/"><FacebookLogo height="60px"/></a></li>
-        <li className="social"><Link className="footer-link" to="https://twitter.com/chattersquadron"><TwitterLogo height="60px"/></Link></li>
-        <li className="social"><Link className="footer-link" to="https://www.instagram.com/chattersquadron/"><InstagramLogo height="60px"/></Link></li>
-        <li className="social"><Link className="footer-link" to="https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g"><YoutubeLogo height="60px"/></Link></li>
-        <li className="social"><Link className="footer-link" to="#"><PatreonLogo height="60px"/></Link></li>
+        <li className="social"><a className="footer-link"href="https://twitter.com/chattersquadron"><TwitterLogo height="60px"/></a></li>
+        <li className="social"><a className="footer-link"href="https://www.instagram.com/chattersquadron/"><InstagramLogo height="60px"/></a></li>
+        <li className="social"><a className="footer-link"href="https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g"><YoutubeLogo height="60px"/></a></li>
+        <li className="social"><a className="footer-link"href="#"><PatreonLogo height="60px"/></a></li>
         <li className="db-cp">
           {' '}
-          Made by <Link className="footer-link" to="#">Dev Boys©</Link>
+          Made by <a className="footer-link"href="#">Dev Boys©</a>
         </li>
       </ul>
     </footer>
