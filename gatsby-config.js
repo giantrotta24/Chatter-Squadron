@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Chatter Squadron Hub`,
@@ -17,7 +19,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images\/.*\.svg$/ // See below to configure properly
+          include: path.resolve(__dirname, 'src/assets/svg'),
         }
       }
     },

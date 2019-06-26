@@ -1,11 +1,11 @@
 import React from 'react';
 // import { Link } from 'gatsby';
 
-import FacebookLogo from '../images/facebook-brands.svg';
-import TwitterLogo from '../images/twitter-brands.svg';
-import InstagramLogo from '../images/instagram-brands.svg';
-import YoutubeLogo from '../images/youtube-brands.svg';
-import PatreonLogo from '../images/patreon-brands.svg';
+import FacebookLogo from '../assets/svg/facebook-brands.svg';
+import TwitterLogo from '../assets/svg/twitter-brands.svg';
+import InstagramLogo from '../assets/svg/instagram-brands.svg';
+import YoutubeLogo from '../assets/svg/youtube-brands.svg';
+import PatreonLogo from '../assets/svg/patreon-brands.svg';
 
 import './index.css';
 
