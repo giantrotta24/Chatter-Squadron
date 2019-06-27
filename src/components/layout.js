@@ -18,12 +18,12 @@ import './index.css';
 const Layout = ({ children }) => {
   return (
     <div className="layout">
+      <MobileBrand />
+      <Navbar></Navbar>
       <StyledBackground>
-        <MobileBrand />
-        <Navbar></Navbar>
         <main>{children}</main>
-        <Footer />
       </StyledBackground>
+      <Footer />
     </div>
   );
 };
