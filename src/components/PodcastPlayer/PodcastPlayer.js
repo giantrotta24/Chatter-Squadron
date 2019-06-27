@@ -10,8 +10,8 @@ export const PodcastPlayer = props => {
           id="podcast-player"
           style={{ border: 'none' }}
           title="libsyn player"
-          src="//html5-player.libsyn.com/embed/episode/id/10159973/height/90/theme/custom/thumbnail/yes/direction/forward/render-playlist/no/custom-color/000000/"
-          height="90"
+          src="//html5-player.libsyn.com/embed/destination/id/602649/height/360/theme/custom/thumbnail/yes/direction/backward/no-cache/true/render-playlist/yes/custom-color/ffffff/"
+          height="360"
           width="100%"
           scrolling="no"
           allowFullScreen
@@ -21,7 +21,6 @@ export const PodcastPlayer = props => {
           msallowfullscreen="true"
         />
       </div>
-      {/* <iframe src="https://open.spotify.com/embed-podcast/episode/65mMmsN1KC9dx8MfJrWG4o" title="spotify player" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> */}
     </div>
   );
 };
