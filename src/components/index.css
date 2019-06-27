@@ -64,7 +64,7 @@ img {
 .jumbotron.jumbotron-fluid {
   border-bottom: 2px solid var(--yellow);
   padding: 0;
-  padding-top: 170px;
+  padding-top: 60px;
   background: hsla(0, 0%, 7%, 0.80);
   background-image: url('../images/CS_smokeBG1.jpg');
   background-size: cover;
