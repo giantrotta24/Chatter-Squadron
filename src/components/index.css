@@ -19,7 +19,6 @@ img {
 .navbar-brand,
 .nav-link {
   color: var(--white) !important;
-  /* font-size: 1.5em; */
 }
 
 .navbar-brand:hover,
@@ -64,17 +63,12 @@ img {
 /* HomeJumbo */
 .jumbotron.jumbotron-fluid {
   padding: 0;
-  /* padding-top: 20px; */
   padding-top: 170px;
   background-image: linear-gradient(90deg, var(--darkblue), var(--darkred));
   display: grid;
   grid-gap: 20px;
   justify-content: center;
   margin-bottom: 0;
-}
-
-.jumbotron {
-  /* opacity: .8; */
 }
 
 .home-jumbo {
