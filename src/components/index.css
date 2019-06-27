@@ -19,7 +19,6 @@ img {
 .navbar-brand,
 .nav-link {
   color: var(--white) !important;
-  font-size: 1.5em;
 }
 
 .navbar-brand:hover,
@@ -30,7 +29,7 @@ img {
 }
 
 .navbar-brand img {
-  width: 100px;
+  width: 75px;
   margin-right: 1em;
   margin-bottom: 0;
 }
@@ -53,19 +52,11 @@ img {
     width: 320px;
     margin: auto;
   }
-  
-  /* Doesn't work */
   .navbar {
     border-bottom: none;
     position: -webkit-sticky; /* Safari */
     position: sticky !important;
     top: 0;
-  }
-}
-
-@media (max-width: 1205px) and (min-width: 993px) {
-  .nav-link {
-    font-size: 1em;
   }
 }
 
