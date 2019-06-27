@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles.css';
+import '../index.css';
 import logo from '../../images/ChatterSquadronLogo.png';
 
-// TODO: Links refs, fix mobile responsiveness (navbar layout breaks around 1090px width), replace placeholder icons (maybe), large brand above navbar on mobile
+// TODO: Links refs, replace placeholder icons (maybe), large brand above navbar on mobile
 export const Navbar = () => {
   return (
     <nav className='navbar navbar-dark navbar-expand-lg py-3'>

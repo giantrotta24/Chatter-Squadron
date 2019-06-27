@@ -8,17 +8,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Navbar } from "./Navbar/Navbar"
+import { MobileBrand } from "./MobileBrand/MobileBrand"
+import Footer from "./Footer"
+
 
 import "./layout.css"
 
 const Layout = ({ children }) => {
   return (
     <>
+      <MobileBrand />
       <Navbar></Navbar>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Chatter Squadron
-        </footer>
+        <Footer />
     </>
   )
 }
