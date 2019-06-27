@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 // import Link from 'gatsby';
 import '../index.css';
+import axios from 'axios';
+// require("dotenv").config();
+
+const key = process.env.REACT_APP_API_KEY;
 
 /*
 Container to hold more videos
@@ -14,8 +18,23 @@ with lazy loading
 */
 
 // TODO Call YouTube api to get the latest videos from channel; if they hit show more maybe get more videos
+
+// TODO Link API Key from .env to play nice with react and gatsby
+
 // TODO Fix issue where videos overlap each other from 1200px until mobile collapse
+
+
 export class MoreVideos extends Component {
+  
+  componentDidMount() {
+    // console.log(key);
+    axios.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=' + key)
+    .then(res => {
+        // const video = res.data;
+        /// ******** Testing if API works *******
+        console.log(res.data.items[0].id)
+      })
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +42,7 @@ export class MoreVideos extends Component {
       videos: [
         {
           link: 'https://www.youtube.com/embed/a6v8ZPkBVRs',
-          title: 'Title'
+          title: 'Video title'
         },
         {
           link: 'https://www.youtube.com/embed/cdcmoyAzY88',
