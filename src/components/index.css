@@ -52,8 +52,8 @@ img {
     width: 320px;
     margin: auto;
   }
-
   .navbar {
+    border-bottom: none;
     position: -webkit-sticky; /* Safari */
     position: sticky !important;
     top: 0;
@@ -62,9 +62,13 @@ img {
 
 /* HomeJumbo */
 .jumbotron.jumbotron-fluid {
+  border-bottom: 2px solid var(--yellow);
   padding: 0;
-  padding-top: 170px;
-  background-image: linear-gradient(90deg, var(--darkblue), var(--darkred));
+  padding-top: 60px;
+  background: hsla(0, 0%, 7%, 0.80);
+  background-image: url('../images/CS_smokeBG1.jpg');
+  background-size: cover;
+  background-position: center;
   display: grid;
   grid-gap: 20px;
   justify-content: center;
@@ -88,12 +92,35 @@ img {
   height: 400px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1075px) {
+  #homeVideo {
+    width: 525px;
+    height: 345px;
+  }
+}
+
+
+@media (max-width: 992px) {
   .jumbotron.jumbotron-fluid {
+    border-bottom: 2px solid var(--yellow);
+
+    padding-top: 25px;
     justify-content: center;
-    background-color: none;
     background-image: none;
-    background-color: var(--niceblack);
+    background-color: rgba(255, 255, 255, 0.89);
+  }
+
+  .vid-player-header {
+    border-top: 2px solid var(--yellow);
+    color: #111111;
+    background: rgba(255, 255, 255, 0.89);
+    font-family: 'Raleway SemiBold', sans-serif;
+    font-style: italic;
+    line-height: 1.3;
+    padding-top: 20px;
+    margin: 0;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   .home-jumbo {
@@ -103,16 +130,13 @@ img {
   #logoPic {
     display: none;
   }
-}
 
-@media (max-width: 900px) {
-  .jumbotron.jumbotron-fluid {
-    justify-content: center;
-    background-color: none;
-    background-image: none;
-    background-color: var(--niceblack);
+  #homeVideo {
+    width: 650px;
+    height: 400px;
   }
 }
+
 
 @media (max-width: 650px) {
   .jumbotron .jumbotron-fluid {
@@ -198,6 +222,14 @@ img {
     cursor: pointer;
 }
 
+
+@media (max-width: 992px) {
+  .wrapper {
+    padding-top: 0;
+  }
+}
+
+
 /* MOBILE BRAND */
 .mobile-brand {
   background: var(--black);
@@ -214,7 +246,15 @@ img {
   display: block;
 }
 
+@media (max-width: 992px) {
+  .more-videos-header {
+    border-top: 0;
+  }
+
+}
+
 @media (min-width: 992px) {
+
   .mobile-brand {
     display: none;
   }
@@ -226,13 +266,12 @@ img {
   font-style: italic;
   line-height: 1.3;
   border-bottom: 2px solid var(--yellow);
-  border-top: 2px solid var(--yellow);
   margin-bottom: 25px;
 }
 
 .wrapper-pod {
   padding: 20px;
-  padding-top: 20px;
+  padding-top: 0px;
   padding-bottom: 0;
   background-color: transparent;
   color: rgb(199, 199, 199);
@@ -247,6 +286,13 @@ img {
 
 .podcast-player {
   padding-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .podcast-header {
+    border-top: 2px solid var(--yellow);
+  }
+
 }
 
 /* footer */
@@ -273,6 +319,7 @@ footer {
 
 .flex-footer li {
   flex: 3;
+  margin-bottom: 0;
 }
 
 .flex-footer .social {
