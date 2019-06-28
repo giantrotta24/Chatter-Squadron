@@ -3,9 +3,9 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 // import { HomeJumbo } from '../components/HomeJumbo/HomeJumbo';
-import JumboStyled from '../components/homejumbo';
+import JumboStyled from '../components/HomeJumbo';
 // import { MoreVideos } from '../components/MoreVideos/MoreVideos';
-import MoreVideos from '../components/morevideos';
+import MoreVideos from '../components/MoreVideos';
 import { PodcastPlayer } from '../components/PodcastPlayer/PodcastPlayer';
 
 const IndexPage = () => (
