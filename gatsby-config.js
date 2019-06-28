@@ -45,7 +45,14 @@ module.exports = {
         icon: `src/images/ChatterSquadronLogo.png`, // This path is relative to the root of the site.
       },
     },
-
+    {
+      resolve: `gatsby-source-youtube`,
+      options: {
+        channelId: 'UCq3EOOv6Kk62OyJpjwKzH-g',
+        apiKey: '<< Add your Youtube api key here>>', //need this still
+        maxVideos: 100 // Defaults to 50
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
