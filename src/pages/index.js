@@ -2,8 +2,10 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { HomeJumbo } from '../components/HomeJumbo/HomeJumbo';
-import { MoreVideos } from '../components/MoreVideos/MoreVideos';
+// import { HomeJumbo } from '../components/HomeJumbo/HomeJumbo';
+import JumboStyled from '../components/homejumbo';
+// import { MoreVideos } from '../components/MoreVideos/MoreVideos';
+import MoreVideos from '../components/morevideos';
 import { PodcastPlayer } from '../components/PodcastPlayer/PodcastPlayer';
 
 const IndexPage = () => (
@@ -14,7 +16,7 @@ const IndexPage = () => (
         <PodcastPlayer />
       </div>
       <div className="col-12 order-lg-first">
-        <HomeJumbo />
+        <JumboStyled />
       </div>
       <div className="col-12">
         <MoreVideos />

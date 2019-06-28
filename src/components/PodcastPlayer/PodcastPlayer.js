@@ -13,7 +13,7 @@ export const PodcastPlayer = props => {
           src="//html5-player.libsyn.com/embed/destination/id/602649/height/360/theme/custom/thumbnail/yes/direction/backward/no-cache/true/render-playlist/yes/custom-color/ffffff/"
           height="360"
           width="100%"
-          scrolling="no"
+          scrolling="yes"
           allowFullScreen
           webkitallowfullscreen="true"
           mozallowfullscreen="true"

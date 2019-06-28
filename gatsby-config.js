@@ -1,4 +1,6 @@
 const path = require('path');
+let env = process.env.NODE_ENV || 'development'
+require('dotenv').config({path: `./.env.${env}`}); 
 
 module.exports = {
   siteMetadata: {
@@ -46,10 +48,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-youtube`,
+      resolve: `gatsby-source-youtube-v2`,
       options: {
-        channelId: 'UCq3EOOv6Kk62OyJpjwKzH-g',
-        apiKey: '<< Add your Youtube api key here>>', //need this still
+        channelId: ['UCq3EOOv6Kk62OyJpjwKzH-g'],
+        apiKey: `${process.env.YOUTUBE_API_KEY}`, //need this still from client, temp gian's
         maxVideos: 100 // Defaults to 50
       },
     },

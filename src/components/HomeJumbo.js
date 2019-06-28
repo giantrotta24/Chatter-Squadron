@@ -1,10 +1,14 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
+import LogoStyled from './logo';
 
-import '../index.css';
+import BackgroundImage from 'gatsby-background-image';
 
-import logo from '../../images/ChatterSquadronLogo.png';
+import './index.css';
+
+// import logo from '../images/ChatterSquadronLogo.png';
+
 
 const HomeJumbo = () => (
   <StaticQuery
@@ -21,13 +25,19 @@ const HomeJumbo = () => (
     `}
     render={data => {
       // Set ImageData.
-      const imageData = data.smokeField.childImageSharp.fluid;
+      let imageData = data.smokeField.childImageSharp.fluid;
       return (
-        <React.Fragment>
+        <BackgroundImage
+          Tag="section"
+          className={'jumbo'}
+          fluid={imageData}
+          backgroundColor={`hsla(0, 0%, 7%, 0.8)`}
+          fadeIn={`soft`}
+        >
           <h2 className="vid-player-header">Featured Video</h2>
           <div className="jumbotron jumbotron-fluid">
             <div className="home-jumbo">
-              <img id="logoPic" alt="chatter squadron logo" src={logo} />
+              <LogoStyled />
               <iframe
                 id="homeVideo"
                 title="youtube-embed"
@@ -38,16 +48,15 @@ const HomeJumbo = () => (
               ></iframe>
             </div>
           </div>
-        </React.Fragment>
+        </BackgroundImage>
       );
     }}
   />
 );
 
-const jumboStyled = styled(HomeJumbo)`
-  background-image: url('../images/CS_smokeBG1.jpg');
+const JumboStyled = styled(HomeJumbo)`
   background-size: cover;
   background-position: center;
 `;
 
-export default jumboStyled
+export default JumboStyled;
