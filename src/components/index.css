@@ -65,10 +65,7 @@ img {
   border-bottom: 2px solid var(--yellow);
   padding: 0;
   padding-top: 60px;
-  background: hsla(0, 0%, 7%, 0.80);
-  background-image: url('../images/CS_smokeBG1.jpg');
-  background-size: cover;
-  background-position: center;
+  background: hsla(0, 0%, 7%, 0);
   display: grid;
   grid-gap: 20px;
   justify-content: center;
@@ -79,12 +76,6 @@ img {
   display: grid;
   grid-gap: 50px;
   grid-template-columns: 400px 1fr;
-}
-
-#logoPic {
-  height: 400px;
-  width: 400px;
-  border-radius: 25px;
 }
 
 #homeVideo {
@@ -99,11 +90,9 @@ img {
   }
 }
 
-
 @media (max-width: 992px) {
   .jumbotron.jumbotron-fluid {
     border-bottom: 2px solid var(--yellow);
-
     padding-top: 25px;
     justify-content: center;
     background-image: none;
@@ -136,7 +125,6 @@ img {
     height: 400px;
   }
 }
-
 
 @media (max-width: 650px) {
   .jumbotron .jumbotron-fluid {
@@ -184,8 +172,8 @@ img {
   justify-items: center;
 }
 
-.video {
-  /* padding: 20px; */
+/* .video {
+  padding: 20px;
   display: grid;
   grid-gap: 10px;
   align-items: center;
@@ -205,7 +193,7 @@ img {
 .video-title:hover {
   color: white;
   font-weight: 400;
-}
+} */
 
 .show-more {
   justify-self: right;
@@ -217,18 +205,16 @@ img {
 }
 
 .show-more:hover {
-    color: white;
-    font-weight: 400;
-    cursor: pointer;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
 }
-
 
 @media (max-width: 992px) {
   .wrapper {
     padding-top: 0;
   }
 }
-
 
 /* MOBILE BRAND */
 .mobile-brand {
@@ -250,11 +236,9 @@ img {
   .more-videos-header {
     border-top: 0;
   }
-
 }
 
 @media (min-width: 992px) {
-
   .mobile-brand {
     display: none;
   }
@@ -292,7 +276,6 @@ img {
   .podcast-header {
     border-top: 2px solid var(--yellow);
   }
-
 }
 
 /* footer */

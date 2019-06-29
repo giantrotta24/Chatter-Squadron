@@ -10,7 +10,7 @@ const BackgroundSection = ({children, className }) => (
       query {
         starfield: file(relativePath: { eq: "8k-starfield.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 4160) {
+            fluid(quality: 100, maxWidth: 4160) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -26,6 +26,7 @@ const BackgroundSection = ({children, className }) => (
           className={className}
           fluid={imageData}
           backgroundColor={`#111111`}
+          fadeIn={`soft`}
         >
           {children}
         </BackgroundImage>
