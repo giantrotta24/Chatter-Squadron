@@ -6,7 +6,8 @@ import SEO from '../components/seo';
 import JumboStyled from '../components/HomeJumbo';
 // import { MoreVideos } from '../components/MoreVideos/MoreVideos';
 import MoreVideos from '../components/MoreVideos';
-import { PodcastPlayer } from '../components/PodcastPlayer/PodcastPlayer';
+// import { PodcastPlayer } from '../components/PodcastPlayer/PodcastPlayer';
+import PodcastPlayer from '../components/PodcastPlayer';
 
 const IndexPage = () => (
   <Layout>
