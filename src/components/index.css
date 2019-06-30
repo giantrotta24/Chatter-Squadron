@@ -18,7 +18,7 @@ img {
   align-items: center;
   background: #111111;
   font-family: 'Raleway', sans-serif;
-  color: var(--white);
+  color: rgb(231, 230, 230);
   border-bottom: 1px solid var(--yellow);
   padding: 10px 30px;
   position: fixed !important;
@@ -74,7 +74,7 @@ img {
 }
 
 .menu ul li a {
-  color: var(--white);
+  color: rgb(231, 230, 230);
   transition: opacity 0.3s;
 }
 
@@ -241,7 +241,7 @@ img {
 .wrapper {
   padding: 20px;
   background-color: transparent;
-  color: rgb(199, 199, 199);
+  color: rgb(231, 230, 230);
   display: grid;
 }
 
@@ -261,29 +261,6 @@ img {
   justify-items: center;
 }
 
-/* .video {
-  padding: 20px;
-  display: grid;
-  grid-gap: 10px;
-  align-items: center;
-  font-weight: 100;
-  font-family: 'Raleway Light', sans-serif;
-  font-size: 1.7em;
-}
-
-.video-thumbnail {
-  max-width: 300px;
-}
-
-.video-title {
-  margin-bottom: 1.45rem;
-}
-
-.video-title:hover {
-  color: white;
-  font-weight: 400;
-} */
-
 .show-more {
   justify-self: right;
   margin-right: 1.5em;
@@ -294,7 +271,7 @@ img {
 }
 
 .show-more:hover {
-  color: white;
+  color: rgb(165, 165, 165);
   font-weight: 400;
   cursor: pointer;
 }
@@ -347,8 +324,8 @@ img {
   padding: 20px;
   padding-top: 0px;
   padding-bottom: 0;
-  background-color: transparent;
-  color: rgb(199, 199, 199);
+  /* background-color: transparent; */
+  color: rgb(231, 230, 230);
   display: grid;
 }
 
@@ -418,7 +395,7 @@ footer {
 }
 
 footer > ul > li > a {
-  color: white;
+  color: rgb(231, 230, 230);
   font-weight: 100;
   letter-spacing: 2px;
   text-decoration: none;

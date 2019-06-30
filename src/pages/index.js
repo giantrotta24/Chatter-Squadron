@@ -9,21 +9,10 @@ import PodcastPlayer from '../components/PodcastPlayer';
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    {/* <div className="row">
-      <div className="col-12">
-        <PodcastPlayer />
-      </div>
-      <div className="col-12 order-lg-first">
-        <JumboStyled />
-      </div>
-      <div className="col-12">
-        <MoreVideos />
-      </div>
-    </div> */}
     <div className='main-grid'>
       <JumboStyled />
-      <MoreVideos />
       <PodcastPlayer />
+      <MoreVideos />
     </div>
   </Layout>
 );
