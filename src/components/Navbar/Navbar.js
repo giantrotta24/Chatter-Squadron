@@ -5,7 +5,7 @@ import logo from '../../images/ChatterSquadronLogo.png';
 // TODO: Links refs, replace placeholder icons (maybe), large brand above navbar on mobile
 export const Navbar = () => {
   return (
-    <nav className='navbar navbar-dark navbar-expand-lg py-3'>
+    <nav className='navbar navbar-dark navbar-expand-lg py-lg-0'>
       <a className='navbar-brand d-none d-lg-block' href='/'>
         <img className='img-responsive' src={logo} alt='Chatter Squadron Logo' />
         <div className='d-inline-block brand-text text-center'>Your Home For Star Wars <br/> Fun &amp; Positivity</div>
