@@ -52,6 +52,8 @@ img {
   padding: 0;
   margin: 0;
   list-style: none;
+  /* Doesn't work */
+  transition: all 1s linear;
 }
 
 .menu ul li {
@@ -85,9 +87,15 @@ img {
   .menu-brand {
     display: none;
   }
+  
+  [aria-expanded="false"] ~ ul {
+    display: none;
+    visibility: hidden;
+  }
 
-  .menu ul {
+  [aria-expanded="true"] ~ ul {
     display: block;
+    visibility: visible;
     max-width: 150px;
     margin: auto;
 
@@ -106,8 +114,20 @@ img {
 
   .nav-icon {
     display: inline !important;
-    margin-right: 10px;
+    margin-right: 15px;
   }
+
+    /* [aria-expanded="false"] .close {
+    display: none;
+  }
+
+  [aria-expanded="true"] .close {
+    display: inline-block;
+  }
+
+  [aria-expanded="true"] .open {
+    display: none;
+  } */
 
   .menu ul li {
     /* flex: 2; */
