@@ -5,58 +5,135 @@ img {
 }
 
 /* NavBar */
-.navbar {
-  background-color: #111111;
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  background: #111111;
   font-family: 'Raleway', sans-serif;
-  font-weight: 300;
+  color: var(--white);
   border-bottom: 1px solid var(--yellow);
+  padding: 10px 30px;
   position: fixed !important;
   top: 0px;
   width: 100vw;
   z-index: 2;
 }
 
-.navbar-brand,
-.nav-link {
-  color: var(--white) !important;
+.menu-brand {
+  display: inline-block;
 }
 
-.navbar-brand:hover,
-.nav-link:hover {
-  /* TODO: Choose a decent hover color */
-  color: var(--white) !important;
-  opacity: 0.75;
-}
-
-.navbar-brand img {
+.menu-brand img {
   width: 75px;
   margin-right: 1em;
   margin-bottom: 0;
 }
 
-.nav-link img {
-  width: 50px;
-}
-
-.brand-text {
+.menu-brand-text {
   font-size: 0.5em;
   font-style: italic;
+  display: inline-block;
+  text-align: center;
+  color: var(--white);
 }
 
-.brand-text-sm {
-  font-size: 1.25em;
+[aria-controls="menu-list"] {
+  background: #111111;
+  color: #c7c7c7;
+  opacity: .5;
+  border: 1px solid #c7c7c7;
+  border-radius: 10%;
+  padding: 5px;
+  height: 100%;
+  padding: 5px 15px;
+  display: none;
+}
+
+.menu ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu ul li {
+  text-transform: uppercase;
+}
+
+.menu ul li a {
+  color: var(--white);
+  transition: opacity 0.3s;
+}
+
+.nav-icon {
+  display: none !important;
+}
+
+.menu ul li a:hover {
+  text-decoration: none;
+  opacity: 0.75;
 }
 
 @media (max-width: 992px) {
-  .navbar-nav {
-    width: 320px;
-    margin: auto;
-  }
-  .navbar {
+  .menu {
+    display: flex;
+    flex-direction: column;
     border-bottom: none;
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
     position: sticky !important;
     top: 0;
+  }
+  [aria-controls="menu-list"] {
+    display: block;
+    justify-self: flex-start;
+    align-self: flex-start;
+
+  }
+  [aria-controls="menu-list"]:focus, 
+  [aria-controls="menu-list"]:hover,
+  [aria-controls="menu-list"]:active {
+    outline-color: rgba(0,0,0,0);
+    /* border-color: var(--yellow);
+    color: var(--yellow); */
+  }
+
+  .menu-brand {
+    display: none;
+  }
+  
+  .menu ul {
+    max-width: 150px;
+    margin: auto;
+    display: block;
+  }
+  
+  [aria-expanded="false"] ~ ul {
+    visibility: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    will-change: transform;
+    transition: all 0.5s linear, visibility 0.25s linear;
+  }
+
+  [aria-expanded="true"] ~ ul {
+    visibility: visibile;
+    max-height: 500px;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    will-change: transform;
+  }
+
+  .nav-icon {
+    display: inline !important;
+    margin-right: 15px;
   }
 }
 

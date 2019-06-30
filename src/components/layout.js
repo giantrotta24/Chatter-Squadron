@@ -8,8 +8,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StyledBackground from './StyledBackground';
-import { Navbar } from './Navbar/Navbar';
-import { MobileBrand } from './MobileBrand/MobileBrand';
+import Navbar from './Navbar';
+import MobileBrand from './MobileBrand';
 import Footer from './footer';
 
 import './layout.css';

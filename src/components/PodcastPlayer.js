@@ -1,8 +1,7 @@
 import React from 'react';
 
-export const PodcastPlayer = props => {
+export const PodcastPlayer = () => {
   return (
-    // Two possible podcast embeds
     <div className="wrapper-pod">
       <h2 className="podcast-header">The Podcast</h2>
       <div className="container my-4">
@@ -24,3 +23,5 @@ export const PodcastPlayer = props => {
     </div>
   );
 };
+
+export default PodcastPlayer;
