@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/ChatterSquadronLogo.png';
 
 export const Navbar = () => {
-  function handleClick() {
+  function toggleExpand() {
     const button = document.querySelector('button[aria-expanded]');
     const expanded = button.getAttribute('aria-expanded') === 'true' || false;
     button.setAttribute('aria-expanded', !expanded);
@@ -14,7 +14,7 @@ export const Navbar = () => {
         <img src={logo} alt='Chatter Squadron Logo' />
         <div className='menu-brand-text'>Your Home For Star Wars <br/> Fun &amp; Positivity</div>
       </a>
-      <button onClick={handleClick} aria-expanded='false' aria-controls='menu-list'>
+      <button onClick={toggleExpand} aria-expanded='false' aria-controls='menu-list'>
         <span class="open">☰</span>
         {/* <span class="close">×</span> */}
       </button>
