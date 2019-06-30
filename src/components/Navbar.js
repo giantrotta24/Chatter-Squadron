@@ -15,36 +15,43 @@ export const Navbar = () => {
       <ul>
         <li>
           <a href="">
+            <i className='nav-icon fas fa-desktop ltgreen'/>
             Video
           </a>
         </li>
         <li>
           <a href="">
+            <i className='nav-icon far fa-play-circle orange'/>
             Audio
           </a>
         </li>
         <li>
           <a href="">
+            <i className='nav-icon fab fa-facebook-f blue'/>
             Facebook
           </a>
         </li>
         <li>
           <a href="">
+            <i className='nav-icon fab fa-twitter ltblue'/>
             Twitter
           </a>
         </li>
         <li>
           <a href="">
+            <i className='nav-icon fab fa-instagram darkred'/>
             Instagram
           </a>
         </li>
         <li>
           <a href="">
+            <i className='nav-icon fab fa-youtube red'/>
             YouTube
           </a>
         </li>
         <li>
           <a href="">
+            <i className='nav-icon fas fa-rss green'/>
             RSS
           </a>
         </li>
