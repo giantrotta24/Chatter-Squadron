@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import LogoStyled from './logo';
+import LogoStyled from './Logo';
 
 import BackgroundImage from 'gatsby-background-image';
 
