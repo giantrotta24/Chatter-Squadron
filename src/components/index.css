@@ -56,8 +56,6 @@ img {
   padding: 0;
   margin: 0;
   list-style: none;
-  /* Doesn't work */
-  /* transition: all 1s linear; */
 }
 
 .menu ul li {
@@ -89,24 +87,64 @@ img {
   [aria-controls="menu-list"] {
     display: block;
     justify-self: flex-start;
-    align-self: flex-start;
+    align-self: center;
+    height: 100%;
   }
 
   .menu-brand {
     display: none;
-    
+  }
+  
+  .menu ul {
+    max-width: 150px;
+    margin: auto;
+    display: block;
   }
   
   [aria-expanded="false"] ~ ul {
-    display: none;
-    /* max-height: 0; */
+    /* max-height: 0;
+    visibility: hidden;
+    transition: max-height 1s cubic-bezier(0, 1, 0, 1); */
+
+    visibility: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    will-change: transform;
+    
+    /* transition: visibility 0.15s linear; */
+    transition: all 0.5s linear, visibility 0.25s linear;
+
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    /* position: absolute; */
+    /* transition: all 0.5s ease; */
+    /* margin-top: 1rem; */
+    /* display: none; */
   }
 
   [aria-expanded="true"] ~ ul {
-    display: block;
-    /* max-height: auto; */
+    visibility: visibile;
+    max-height: 500px;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    will-change: transform;
+    /* transition: max-height 1s ease-in-out;
+    visibility: visible; */
+    /* display: block; */
+    /* display: block;
+    visibility: visible;
     max-width: 150px;
-    margin: auto;
+    margin: auto; */
+    /* visibility: visible; */
+    /* opacity: 1; */
+    /* display: block; */
+    /* max-height: auto; */
+    /* position: static; */
+    /* max-height: auto; */
+    /* transition: max-height 1s linear; */
 
     /* display: flex;
     flex-direction: column;
@@ -119,6 +157,8 @@ img {
     /* width: 75px; */
     /* margin: auto; */
     /* text-align: center; */
+
+
   }
 
   .nav-icon {
