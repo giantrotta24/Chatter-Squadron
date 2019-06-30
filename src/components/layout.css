@@ -343,6 +343,9 @@
 }
 
 html {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;flex: 1;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

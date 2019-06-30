@@ -51,6 +51,18 @@ const Video = styled.div`
     font-weight: 400;
   }
 
+  @media (max-width: 1100px) {
+    .video-thumbnail {
+      height: 300px;
+      width: 450px;
+    }
+
+    .video-title {
+      width: 350px;
+    }
+  }
+
+
   @media (max-width: 550px) {
     .video-thumbnail {
       height: 250px;
@@ -86,7 +98,7 @@ const VideoListing = () => (
 const MoreVideos = () => (
   <div className="wrapper">
     <h2 className="more-videos-header">More Videos</h2>
-    <div className="container more-videos">
+    <div className="more-videos">
       <VideoListing />
     </div>
     <div className="show-more">Show More //</div>

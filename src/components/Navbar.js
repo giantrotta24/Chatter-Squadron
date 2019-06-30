@@ -15,7 +15,7 @@ export const Navbar = () => {
         <div className='menu-brand-text'>Your Home For Star Wars <br/> Fun &amp; Positivity</div>
       </a>
       <button onClick={toggleExpand} aria-expanded='false' aria-controls='menu-list'>
-        <span class="open">☰</span>
+        <span className="open">☰</span>
         {/* <span class="close">×</span> */}
       </button>
       <ul>
