@@ -4,6 +4,11 @@ img {
   margin-bottom: 0;
 }
 
+.main-grid {
+  display: grid;
+  grid-auto-flow: row;
+}
+
 /* NavBar */
 
 .menu {
@@ -23,7 +28,9 @@ img {
 }
 
 .menu-brand {
-  display: inline-block;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
 }
 
 .menu-brand img {
@@ -38,6 +45,7 @@ img {
   display: inline-block;
   text-align: center;
   color: var(--white);
+  line-height: 10px;
 }
 
 [aria-controls="menu-list"] {
@@ -74,8 +82,12 @@ img {
   display: none !important;
 }
 
+.menu ul li a {
+  /* text-decoration: none; */
+}
+
 .menu ul li a:hover {
-  text-decoration: none;
+  /* text-decoration: none; */
   opacity: 0.75;
 }
 
@@ -295,6 +307,7 @@ img {
 
 /* MOBILE BRAND */
 .mobile-brand {
+  font-family: 'Raleway', sans-serif;
   background: var(--black);
   color: var(--white);
   text-align: center;
@@ -350,13 +363,21 @@ img {
 }
 
 @media (max-width: 992px) {
+  .wrapper-pod {
+    order: -1;
+  }
   .podcast-header {
     border-top: 2px solid var(--yellow);
   }
 }
 
+@media (min-width: 993px) {
+
+} 
+
 /* footer */
 footer {
+  font-family: 'Raleway', sans-serif;
   text-decoration: none;
   background-color: var(--niceblack);
   color: white;
