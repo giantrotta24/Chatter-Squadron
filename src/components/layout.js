@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import StyledBackground from './StyledBackground';
 import Navbar from './Navbar';
 import MobileBrand from './MobileBrand';
-import Footer from './footer';
+import Footer from './Footer';
 
 import './layout.css';
 import './index.css';
