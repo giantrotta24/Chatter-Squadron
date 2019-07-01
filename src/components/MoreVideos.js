@@ -49,28 +49,37 @@ const Video = styled.div`
     overflow: visible;
     color: white;
     font-weight: 400;
+    transition: all 1s;
   }
 
-  @media (max-width: 1100px) {
-    .video-thumbnail {
-      height: 300px;
-      width: 450px;
-    }
-
-    .video-title {
-      width: 350px;
+  @media (max-width: 650px) {
+    .video {
+      padding-right: 30px;
     }
   }
 
 
-  @media (max-width: 550px) {
+  @media (max-width: 525px) {
+
     .video-thumbnail {
-      height: 250px;
-      width: 350px;
+      width: 300px;
+      height: 225px;
     }
 
     .video-title {
-      width: 350px;
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 445px) {
+
+    .video-thumbnail {
+      width: 260px;
+      height: 155px;
+    }
+
+    .video-title {
+      width: 260px;
     }
   }
 `;

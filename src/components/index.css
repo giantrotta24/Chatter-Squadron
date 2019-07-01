@@ -11,6 +11,7 @@ img {
 .main-grid {
   display: grid;
   grid-auto-flow: row;
+  grid-template-columns: 100vw;
 }
 
 /* NavBar */
@@ -242,7 +243,7 @@ img {
   padding: 20px;
   background-color: transparent;
   color: rgb(231, 230, 230);
-  display: grid;
+  grid-template-columns: 100vw;
 }
 
 .more-videos-header {
@@ -255,14 +256,15 @@ img {
 }
 
 .more-videos {
+  grid-template-columns: 100vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-gap: 20px;
   justify-items: center;
 }
 
 .show-more {
-  justify-self: right;
+  float: right;
   margin-right: 1.5em;
   margin-bottom: 1em;
   font-size: 1.7em;
@@ -284,6 +286,26 @@ img {
   .more-videos-header {
     border-top: 0;
   }
+
+  .more-videos {
+    grid-template-columns: 100vw;
+    /* grid-auto-flow: row; */
+  }
+
+}
+
+@media (max-width: 550px) {
+  .wrapper {
+    justify-items: center;
+    grid-template-columns: 100vw;
+    grid-auto-flow: row;
+  }
+
+  .more-videos {
+    grid-template-columns: 100vw;
+    /* grid-auto-flow: row; */
+  }
+
 }
 
 /* MOBILE BRAND */
@@ -339,9 +361,7 @@ img {
     order: -1;
     padding-bottom: 30px;
   }
-
 }
-
 
 /* footer */
 footer {
@@ -353,7 +373,6 @@ footer {
   border-top: solid 2px var(--yellow);
   align-items: center;
   text-align: center;
-
 }
 
 .flex-footer ul {
@@ -367,15 +386,12 @@ footer {
   flex: 3;
   margin-bottom: 0;
   align-self: center;
-
 }
 
 .flex-footer .social {
   flex: 1;
   align-self: center;
-
 }
-
 
 footer > ul > li > a {
   color: rgb(231, 230, 230);
@@ -394,11 +410,9 @@ footer > ul > li > a:hover {
   color: var(--ltblue);
 }
 
-
-
 @media (max-width: 1000px) {
   /* start of medium tablet styles */
-  
+
   .flex-footer ul {
     margin: 0;
     padding: 0;
@@ -406,20 +420,8 @@ footer > ul > li > a:hover {
     grid-template-columns: 1;
     text-align: center;
   }
-  
+
   .flex-footer li {
     border-bottom: 1px #111111 solid;
   }
-
 }
-  
-  /* @media screen and (max-width: 479px) { 
-    footer ul {
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1;
-      text-align: center;
-    }
-    
-  } */
