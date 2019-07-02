@@ -225,6 +225,14 @@ img {
     width: 400px;
     height: 300px;
   }
+
+  iframe{
+    width: 100%;
+  }
+
+  .my-4{
+    width: 95%;
+  }
 }
 
 @media (max-width: 450px) {
