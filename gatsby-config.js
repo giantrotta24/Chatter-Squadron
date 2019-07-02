@@ -1,4 +1,6 @@
 const path = require('path');
+let env = process.env.NODE_ENV || 'development'
+require('dotenv').config({path: `./.env.${env}`}); 
 
 module.exports = {
   siteMetadata: {
@@ -19,7 +21,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
+          include: /assets\/svg/,
           include: path.resolve(__dirname, 'src/assets/svg'),
+          include: /assets(\/|\\)svg/
         }
       }
     },
@@ -43,7 +47,14 @@ module.exports = {
         icon: `src/images/ChatterSquadronLogo.png`, // This path is relative to the root of the site.
       },
     },
-
+    {
+      resolve: `gatsby-source-youtube-v2`,
+      options: {
+        channelId: ['UCq3EOOv6Kk62OyJpjwKzH-g'],
+        apiKey: `${process.env.YOUTUBE_API_KEY}`, //need this still from client, temp gian's
+        maxVideos: 100 // Defaults to 50
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
