@@ -54,8 +54,20 @@ const Video = styled.div`
 
   @media (max-width: 650px) {
     .video {
-      padding-right: 30px;
+     padding: 15% 65% 15% 65%;
+      background-color: grey;
+      border: 2px solid var(--yellow);
     }
+
+    .video-thumbnail{
+      margin-right: 95%;
+      border: 1px solid black;
+    }
+
+    .video-title {
+      margin-right: 95%;
+    }
+
   }
 
 
