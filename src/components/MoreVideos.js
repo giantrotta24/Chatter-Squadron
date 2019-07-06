@@ -61,9 +61,7 @@ const Video = styled.div`
   }
 
   @media (max-width: 650px) {
-    .video {
-      margin-left: -30px;
-    }
+
   }
 
 
