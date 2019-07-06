@@ -289,7 +289,6 @@ img {
 
   .more-videos {
     grid-template-columns: 100vw;
-    /* grid-auto-flow: row; */
   }
 }
 
