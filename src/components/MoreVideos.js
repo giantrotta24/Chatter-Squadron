@@ -20,6 +20,7 @@ const INITIAL_QUERY = graphql`
   }
 `;
 
+// TODO Move to stylesheet??
 const Video = styled.div`
   .video {
     display: grid;
@@ -27,21 +28,28 @@ const Video = styled.div`
     justify-items: center;
     font-weight: 100;
     font-family: 'Raleway Light', sans-serif;
-    font-size: 1.7em;
+    font-size: 1.5em;
+    background-color: #111111;
+    border: 1px solid black;
+    -webkit-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
   }
 
   .video-thumbnail {
     height: 350px;
     width: 500px;
+    border-bottom: 2px solid var(--yellow);
   }
 
   .video-title {
     align-self: center;
-    margin-bottom: 1.45rem;
+    padding: 0.25em 1em .5em 1em;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
     width: 500px;
+    
   }
 
   .video-title:hover {
@@ -54,7 +62,7 @@ const Video = styled.div`
 
   @media (max-width: 650px) {
     .video {
-      padding-right: 30px;
+      margin-left: -30px;
     }
   }
 
