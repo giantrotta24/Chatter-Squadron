@@ -59,7 +59,6 @@ const Video = styled.div`
     right: 0;
     background-color: #111111;
     width: 100%;
-
   }
 
   .video-title:hover {
@@ -69,7 +68,7 @@ const Video = styled.div`
     overflow: visible;
     color: white;
     font-weight: 400;
-    
+    cursor: pointer;
   }
 
   @media (max-width: 650px) {
