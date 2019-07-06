@@ -34,6 +34,7 @@ const Video = styled.div`
     -webkit-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
     box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+    justify-self: center;
   }
 
   .video-thumbnail {
