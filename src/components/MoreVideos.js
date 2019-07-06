@@ -34,12 +34,14 @@ const Video = styled.div`
     -webkit-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
     box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+
+    position: relative;
   }
 
   .video-thumbnail {
     height: 350px;
     width: 500px;
-    border-bottom: 2px solid var(--yellow);
+    
   }
 
   .video-title {
@@ -50,14 +52,24 @@ const Video = styled.div`
     white-space: nowrap;
     width: 500px;
     
+    border-top: 2px solid var(--yellow);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #111111;
+    width: 100%;
+
   }
 
   .video-title:hover {
+    max-height: 100%;
+    background-color: rgba(17, 17, 17, .85);
     white-space: normal;
     overflow: visible;
     color: white;
     font-weight: 400;
-    transition: all 1s;
+    
   }
 
   @media (max-width: 650px) {
