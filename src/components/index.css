@@ -270,6 +270,7 @@ img {
   font-size: 1.7em;
   font-family: 'Raleway Light', sans-serif;
   font-style: italic;
+  margin-top: 30px;
 }
 
 .show-more:hover {
@@ -281,15 +282,17 @@ img {
 @media (max-width: 992px) {
   .wrapper {
     padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .more-videos-header {
     border-top: 0;
+    padding: 0 30px;
   }
 
   .more-videos {
     grid-template-columns: 100vw;
-    /* grid-auto-flow: row; */
   }
 }
 
