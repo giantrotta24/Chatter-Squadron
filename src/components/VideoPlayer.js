@@ -9,11 +9,13 @@ pass in src from outside video.js
 */
 
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import YouTubePlayer from 'react-player/lib/players/YouTube';
+import screenfull from 'screenfull';
 
 class VideoPlayer extends Component {
   state = {
-    url: 'https://www.youtube.com/watch?v=u3py1owz5R0',
+    url: 'https://www.youtube.com/watch?v=PY9XvIA6L6s&t',
     pip: false,
     playing: false,
     controls: true,
@@ -38,17 +40,39 @@ class VideoPlayer extends Component {
   playPause = () => {
     this.setState({ playing: !this.state.playing });
   };
-  stop = () => {
-    this.setState({ url: null, playing: false });
-  };
   onPlay = () => {
     console.log('onPlay');
     this.setState({ playing: true });
   };
+  onClickFullscreen = () => {
+    screenfull.request(findDOMNode(this.player));
+  };
   ref = player => {
     this.player = player;
   };
-
+  toggleMuted = () => {
+    this.setState({ muted: !this.state.muted });
+  };
+  setVolume = e => {
+    this.setState({ volume: parseFloat(e.target.value) });
+  };
+  onSeekMouseDown = e => {
+    this.setState({ seeking: true });
+  };
+  onSeekChange = e => {
+    this.setState({ played: parseFloat(e.target.value) });
+  };
+  onSeekMouseUp = e => {
+    this.setState({ seeking: false });
+    this.player.seekTo(parseFloat(e.target.value));
+  };
+  onProgress = state => {
+    console.log('onProgress', state);
+    // We only want to update time slider if we are not currently seeking
+    if (!this.state.seeking) {
+      this.setState(state);
+    }
+  };
   render() {
     const {
       url,
@@ -88,6 +112,14 @@ class VideoPlayer extends Component {
           onEnded={this.onEnded}
           onError={e => console.log('onError', e)}
         />
+        <div className="video-controls">
+          <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
+          <button onClick={this.onClickFullscreen}>Fullscreen</button>
+          <label htmlFor='volume'>Volume</label>
+          <input id="volume" type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
+          <label htmlFor='muted'>Muted</label>
+          <input id='muted' type='checkbox' checked={muted} onChange={this.toggleMuted} />
+        </div>
       </div>
     );
   }

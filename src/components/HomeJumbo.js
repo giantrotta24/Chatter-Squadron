@@ -34,21 +34,11 @@ const HomeJumbo = () => (
           backgroundColor={`hsla(0, 0%, 7%, 0.8)`}
           fadeIn={`soft`}
         >
-          <h2 className="vid-player-header">Featured Video</h2>
+          <h2 className="vid-player-header">Now Playing</h2>
           <div className="jumbotron jumbotron-fluid">
             <div className="home-jumbo">
               <LogoStyled />
-              <div>
-                <VideoPlayer />
-              </div>
-              {/* <iframe
-                id="homeVideo"
-                title="youtube-embed"
-                src="https://www.youtube.com/embed/cdcmoyAzY88"
-                frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe> */}
+              <VideoPlayer />
             </div>
           </div>
         </BackgroundImage>
