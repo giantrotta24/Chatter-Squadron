@@ -155,10 +155,12 @@ img {
   border-bottom: 2px solid var(--yellow);
   padding: 0;
   padding-top: 60px;
+  padding-bottom: 30px;
   background: hsla(0, 0%, 7%, 0);
   display: grid;
   grid-gap: 20px;
   justify-content: center;
+  align-items: center;
   margin-bottom: 0;
 }
 
@@ -169,6 +171,10 @@ img {
 }
 
 #homeVideo {
+  width: 611px;
+  height: 400px;
+}
+.player-wrapper {
   width: 611px;
   height: 400px;
 }
