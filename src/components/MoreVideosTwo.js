@@ -110,6 +110,10 @@ class VideoListing extends Component {
     })
   };
 
+  playVideo = (id) => {
+    console.log('id: ' + id);
+  }
+
   render() {
     // TODO: Delete console log when finished
     console.log(this.state);
@@ -123,7 +127,7 @@ class VideoListing extends Component {
                 alt='video thumbnail'
                 className='video-thumbnail'
               />
-              <div className='video-title'>{video.snippet.title}</div>
+              <div className='video-title' onClick={() => this.playVideo(video.contentDetails.videoId)}>{video.snippet.title}</div>
             </div>
           </Video>
         ))}
