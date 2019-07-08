@@ -97,8 +97,11 @@ img {
     display: flex;
     flex-direction: column;
     border-bottom: none;
-    position: -webkit-sticky;
     position: sticky !important;
+    position: -webkit-sticky !important;
+    position: -moz-sticky !important;
+    position: -ms-sticky !important;
+    position: -o-sticky !important;
     top: 0;
     border-bottom: 2px solid var(--yellow);
   }
@@ -227,7 +230,6 @@ img {
 }
 
 @media (max-width: 825px) {
-
   .player-wrapper {
     width: 100vw;
     height: 400px;
@@ -235,13 +237,11 @@ img {
 }
 
 @media (max-width: 600px) {
-
   .player-wrapper {
     width: 100vw;
     height: 300px;
   }
 }
-
 
 /* More Videos Section */
 .wrapper {
