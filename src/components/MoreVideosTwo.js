@@ -79,7 +79,7 @@ const Video = styled.div`
   }
 `;
 
-class VideoListing extends Component {
+class MoreVideosTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -89,6 +89,7 @@ class VideoListing extends Component {
       loading: false,
       error: false,
       videos: [],
+      showMore: false,
     };
   }
 
@@ -114,24 +115,36 @@ class VideoListing extends Component {
     console.log('id: ' + id);
   }
 
+  showMore = () => {
+    console.log("SHOW MORE");
+    this.setState({
+      showMore: !this.state.showMore
+    });
+  }
+
   render() {
     // TODO: Delete console log when finished
     console.log(this.state);
+    const videos = this.state.showMore ? this.state.videos : this.state.videos.slice(0, 6);
     return (
-      <React.Fragment>
-        {this.state.videos.slice(0, 6).map(video => (
-          <Video key={video.contentDetails.videoId}>
-            <div className='video'>
-              <img
-                src={video.snippet.thumbnails.high.url}
-                alt='video thumbnail'
-                className='video-thumbnail'
-              />
-              <div className='video-title' onClick={() => this.playVideo(video.contentDetails.videoId)}>{video.snippet.title}</div>
-            </div>
-          </Video>
-        ))}
-      </React.Fragment>
+      <div className='wrapper'>
+        <h2 className='more-videos-header'>More Videos</h2>
+        <div className='more-videos'>
+          {videos.map(video => (
+            <Video key={video.contentDetails.videoId}>
+              <div className='video'>
+                <img
+                  src={video.snippet.thumbnails.high.url}
+                  alt='video thumbnail'
+                  className='video-thumbnail'
+                />
+                <div className='video-title' onClick={() => this.playVideo(video.contentDetails.videoId)}>{video.snippet.title}</div>
+              </div>
+            </Video>
+          ))}
+        </div>
+        <div className='show-more' onClick={() => this.showMore()}>{!this.state.showMore ? 'Show More //' : 'Show Less'}</div>
+      </div>
     )
   }
 }
@@ -157,14 +170,14 @@ class VideoListing extends Component {
 //   />
 // );
 
-const MoreVideosTwo = () => (
-  <div className='wrapper'>
-    <h2 className='more-videos-header'>More Videos</h2>
-    <div className='more-videos'>
-      <VideoListing />
-    </div>
-    <div className='show-more'>Show More //</div>
-  </div>
-);
+// const MoreVideosTwo = () => (
+//   <div className='wrapper'>
+//     <h2 className='more-videos-header'>More Videos</h2>
+//     <div className='more-videos'>
+//       <VideoListing />
+//     </div>
+//     <div className='show-more'>Show More //</div>
+//   </div>
+// );
 
 export default MoreVideosTwo;
