@@ -80,13 +80,17 @@ const Video = styled.div`
 `;
 
 class VideoListing extends Component {
-  state = {
-    videoID: '',
-    videoThumbnail: '',
-    videoTitle: '',
-    loading: false,
-    error: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      videoID: '',
+      videoThumbnail: '',
+      videoTitle: '',
+      loading: false,
+      error: false,
+      videos: [],
+    };
+  }
 
   componentDidMount() {
     this.fetchYoutubeData();
@@ -97,7 +101,9 @@ class VideoListing extends Component {
     axios
     .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.YOUTUBE_API_KEY}`)
     .then(data => {
-      console.log(data);
+      this.setState({
+        videos: data.data.items
+      });
     })
     .catch(error => {
       this.setState({ loading: false, error })
@@ -105,8 +111,23 @@ class VideoListing extends Component {
   };
 
   render() {
+    // TODO: Delete console log when finished
+    console.log(this.state);
     return (
-      <div></div>
+      <React.Fragment>
+        {this.state.videos.slice(0, 6).map(video => (
+          <Video key={video.contentDetails.videoId}>
+            <div className='video'>
+              <img
+                src={video.snippet.thumbnails.high.url}
+                alt='video thumbnail'
+                className='video-thumbnail'
+              />
+              <div className='video-title'>{video.snippet.title}</div>
+            </div>
+          </Video>
+        ))}
+      </React.Fragment>
     )
   }
 }
@@ -118,13 +139,13 @@ class VideoListing extends Component {
 //     render={({ allYoutubeVideo }) =>
 //       allYoutubeVideo.edges.map(({ node }) => (
 //         <Video key={node.videoId}>
-//           <div className="video">
+//           <div className='video'>
 //             <img
 //               src={node.thumbnail.url}
-//               alt="video thumbnail"
-//               className="video-thumbnail"
+//               alt='video thumbnail'
+//               className='video-thumbnail'
 //             />
-//             <div className="video-title">{node.title}</div>
+//             <div className='video-title'>{node.title}</div>
 //           </div>
 //         </Video>
 //       ))
@@ -133,12 +154,12 @@ class VideoListing extends Component {
 // );
 
 const MoreVideosTwo = () => (
-  <div className="wrapper">
-    <h2 className="more-videos-header">More Videos</h2>
-    <div className="more-videos">
+  <div className='wrapper'>
+    <h2 className='more-videos-header'>More Videos</h2>
+    <div className='more-videos'>
       <VideoListing />
     </div>
-    <div className="show-more">Show More //</div>
+    <div className='show-more'>Show More //</div>
   </div>
 );
 
