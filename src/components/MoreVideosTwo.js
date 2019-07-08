@@ -88,20 +88,29 @@ class VideoListing extends Component {
     error: false,
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.fetchYoutubeData();
+  }
+
+  fetchYoutubeData = () => {
+    this.setState({ loading: true });
+    axios
+    .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.YOUTUBE_API_KEY}`)
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      this.setState({ loading: false, error })
+    })
+  };
+
+  render() {
+    return (
+      <div></div>
+    )
+  }
 }
 
-fetchYoutubeData = () => {
-  this.setState({ loading: true });
-  axios
-  .get(`youtube api`)
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    this.setState({ loading: false, error })
-  })
-};
 
 // const VideoListing = () => (
 //   <StaticQuery
