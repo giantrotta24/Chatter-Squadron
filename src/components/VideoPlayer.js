@@ -18,7 +18,7 @@ class VideoPlayer extends Component {
     url: 'https://www.youtube.com/watch?v=PY9XvIA6L6s&t',
     pip: false,
     playing: false,
-    controls: false,
+    controls: true,
     light: true,
     volume: 0.8,
     muted: false,
@@ -146,7 +146,7 @@ class VideoPlayer extends Component {
           onEnded={this.onEnded}
           onError={e => console.log('onError', e)}
         />
-        <div className="video-controls">
+        {/* <div className="video-controls">
           <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
           <button onClick={this.onClickFullscreen}>Fullscreen</button>
           <label htmlFor="volume">Volume</label>
@@ -166,7 +166,7 @@ class VideoPlayer extends Component {
             checked={muted}
             onChange={this.toggleMuted}
           />
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -172,13 +172,13 @@ img {
 
 .player-wrapper {
   width: 611px;
-  height: 375px;
+  height: 400px;
 }
 
 @media (max-width: 1075px) {
   .player-wrapper {
     width: 525px;
-    height: 375px;
+    height: 400px;
   }
 }
 
