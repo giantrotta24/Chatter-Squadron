@@ -81,9 +81,6 @@ class MoreVideos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoID: '',
-      videoThumbnail: '',
-      videoTitle: '',
       loading: false,
       error: false,
       videos: [],
@@ -110,8 +107,8 @@ class MoreVideos extends Component {
     })
   };
 
-  playVideo = (id) => {
-    console.log('id: ' + id);
+  grabId = (id) => {
+    this.props.callbackFromParent(id);
   }
 
   showMore = () => {
@@ -123,7 +120,7 @@ class MoreVideos extends Component {
 
   render() {
     // TODO: Delete console log when finished
-    console.log(this.state);
+    // console.log(this.state);
     const videos = this.state.showMore ? this.state.videos : this.state.videos.slice(0, 6);
     return (
       <div className='wrapper'>
@@ -137,7 +134,7 @@ class MoreVideos extends Component {
                   alt='video thumbnail'
                   className='video-thumbnail'
                 />
-                <div className='video-title' onClick={() => this.playVideo(video.contentDetails.videoId)}>{video.snippet.title}</div>
+                <div className='video-title' onClick={() => this.grabId(video.contentDetails.videoId)}>{video.snippet.title}</div>
               </div>
             </Video>
           ))}

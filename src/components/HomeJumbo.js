@@ -10,7 +10,8 @@ import './index.css';
 
 // import logo from '../images/ChatterSquadronLogo.png';
 
-const HomeJumbo = () => (
+
+const HomeJumbo = (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -26,6 +27,8 @@ const HomeJumbo = () => (
     render={data => {
       // Set ImageData.
       let imageData = data.smokeField.childImageSharp.fluid;
+      let clickedId = props.idFromParent ? props.idFromParent : 'PY9XvIA6L6s&t';
+      // console.log(clickedId);
       return (
         <BackgroundImage
           Tag="section"
@@ -38,7 +41,7 @@ const HomeJumbo = () => (
           <div className="jumbotron jumbotron-fluid">
             <div className="home-jumbo">
               <LogoStyled />
-              <VideoPlayer />
+              <VideoPlayer videoId={`https://www.youtube.com/watch?v=${clickedId}`}/>
             </div>
           </div>
         </BackgroundImage>

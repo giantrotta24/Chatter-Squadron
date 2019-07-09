@@ -15,32 +15,26 @@ import screenfull from 'screenfull';
 const windowLocation = typeof window !== 'undefined' && window.location;
 const windowProtocol = typeof window !== 'undefined' && window.location.protocol;
 
-
 class VideoPlayer extends Component {
-  state = {
-    url: 'https://www.youtube.com/watch?v=PY9XvIA6L6s&t',
-    pip: false,
-    playing: false,
-    controls: true,
-    light: true,
-    volume: 0.8,
-    muted: false,
-    played: 0,
-    loaded: 0,
-    duration: 0,
-    playbackRate: 1.0,
-    loop: false,
-    elWidth: null,
-  };
-
-  load = url => {
-    this.setState({
-      url,
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: '',
+      pip: false,
+      playing: false,
+      controls: true,
+      light: true,
+      volume: 0.8,
+      muted: false,
       played: 0,
       loaded: 0,
-      pip: false,
-    });
-  };
+      duration: 0,
+      playbackRate: 1.0,
+      loop: false,
+      elWidth: null,
+      id: '',
+    };
+  }
 
   /*
 
@@ -110,6 +104,11 @@ class VideoPlayer extends Component {
       this.setState(state);
     }
   };
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.videoId !== prevState.id) {
+      return { url: nextProps.videoId };
+    } else return null;
+  }
 
   render() {
     const {
@@ -126,12 +125,17 @@ class VideoPlayer extends Component {
       playbackRate,
       pip,
     } = this.state;
+    // console.log(this.state.id);
     return (
       <div className="player-wrapper">
         <YouTubePlayer
           config={{
             youtube: {
-              playerVars: { modestbranding: 1, origin: windowLocation, host: `${windowProtocol}https://www.youtube.com`},
+              playerVars: {
+                modestbranding: 1,
+                origin: windowLocation,
+                host: `${windowProtocol}https://www.youtube.com`,
+              },
             },
           }}
           ref={this.ref}
