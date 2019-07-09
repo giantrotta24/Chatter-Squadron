@@ -21,7 +21,6 @@ const INITIAL_QUERY = graphql`
   }
 `;
 
-// TODO Move to stylesheet??
 const Video = styled.div`
   .video {
     display: grid;

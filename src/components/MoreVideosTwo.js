@@ -79,29 +79,76 @@ const Video = styled.div`
   }
 `;
 
-class VideoListing extends Component {
-  state = {
-    videoID: '',
-    videoThumbnail: '',
-    videoTitle: '',
-    loading: false,
-    error: false,
+class MoreVideosTwo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videoID: '',
+      videoThumbnail: '',
+      videoTitle: '',
+      loading: false,
+      error: false,
+      videos: [],
+      showMore: false,
+    };
+  }
+
+  componentDidMount() {
+    this.fetchYoutubeData();
+  }
+
+  fetchYoutubeData = () => {
+    this.setState({ loading: true });
+    axios
+    .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.YOUTUBE_API_KEY}`)
+    .then(data => {
+      this.setState({
+        videos: data.data.items
+      });
+    })
+    .catch(error => {
+      this.setState({ loading: false, error })
+    })
   };
 
-  componentDidMount() {}
+  playVideo = (id) => {
+    console.log('id: ' + id);
+  }
+
+  showMore = () => {
+    console.log("SHOW MORE");
+    this.setState({
+      showMore: !this.state.showMore
+    });
+  }
+
+  render() {
+    // TODO: Delete console log when finished
+    console.log(this.state);
+    const videos = this.state.showMore ? this.state.videos : this.state.videos.slice(0, 6);
+    return (
+      <div className='wrapper'>
+        <h2 className='more-videos-header'>More Videos</h2>
+        <div className='more-videos'>
+          {videos.map(video => (
+            <Video key={video.contentDetails.videoId}>
+              <div className='video'>
+                <img
+                  src={video.snippet.thumbnails.high.url}
+                  alt='video thumbnail'
+                  className='video-thumbnail'
+                />
+                <div className='video-title' onClick={() => this.playVideo(video.contentDetails.videoId)}>{video.snippet.title}</div>
+              </div>
+            </Video>
+          ))}
+        </div>
+        <div className='show-more' onClick={() => this.showMore()}>{!this.state.showMore ? 'Show More //' : 'Show Less'}</div>
+      </div>
+    )
+  }
 }
 
-fetchYoutubeData = () => {
-  this.setState({ loading: true });
-  axios
-  .get(`youtube api`)
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    this.setState({ loading: false, error })
-  })
-};
 
 // const VideoListing = () => (
 //   <StaticQuery
@@ -109,13 +156,13 @@ fetchYoutubeData = () => {
 //     render={({ allYoutubeVideo }) =>
 //       allYoutubeVideo.edges.map(({ node }) => (
 //         <Video key={node.videoId}>
-//           <div className="video">
+//           <div className='video'>
 //             <img
 //               src={node.thumbnail.url}
-//               alt="video thumbnail"
-//               className="video-thumbnail"
+//               alt='video thumbnail'
+//               className='video-thumbnail'
 //             />
-//             <div className="video-title">{node.title}</div>
+//             <div className='video-title'>{node.title}</div>
 //           </div>
 //         </Video>
 //       ))
@@ -123,14 +170,14 @@ fetchYoutubeData = () => {
 //   />
 // );
 
-const MoreVideosTwo = () => (
-  <div className="wrapper">
-    <h2 className="more-videos-header">More Videos</h2>
-    <div className="more-videos">
-      <VideoListing />
-    </div>
-    <div className="show-more">Show More //</div>
-  </div>
-);
+// const MoreVideosTwo = () => (
+//   <div className='wrapper'>
+//     <h2 className='more-videos-header'>More Videos</h2>
+//     <div className='more-videos'>
+//       <VideoListing />
+//     </div>
+//     <div className='show-more'>Show More //</div>
+//   </div>
+// );
 
 export default MoreVideosTwo;
