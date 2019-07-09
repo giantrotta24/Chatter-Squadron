@@ -1,6 +1,5 @@
 import React from 'react';
-import '../index.css';
-import logo from '../../images/ChatterSquadronLogo.png';
+import logo from '../images/ChatterSquadronLogo.png';
 
 export const MobileBrand = () => {
   return (
@@ -12,3 +11,5 @@ export const MobileBrand = () => {
     </div>
   )
 }
+
+export default MobileBrand;

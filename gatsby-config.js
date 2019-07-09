@@ -1,4 +1,6 @@
 const path = require('path');
+let env = process.env.NODE_ENV || 'development' || 'production';
+require('dotenv').config({path: `./.env.${env}`}); 
 
 module.exports = {
   siteMetadata: {

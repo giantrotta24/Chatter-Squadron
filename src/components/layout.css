@@ -339,13 +339,16 @@
   --ltgreen: #55b84b;
   --green: #237b3e;
   --darkgreen: #12411f;
+  --white: #FAFAFA;
 }
 
 html {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;flex: 1;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -386,6 +389,7 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  text-decoration: none;
 }
 a:active,
 a:hover {
