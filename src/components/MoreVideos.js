@@ -98,7 +98,7 @@ class MoreVideos extends Component {
   fetchYoutubeData = () => {
     this.setState({ loading: true });
     axios
-    .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
+    .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`)
     .then(data => {
       this.setState({
         loading: false,
