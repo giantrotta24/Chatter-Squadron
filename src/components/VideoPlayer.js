@@ -12,7 +12,8 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import YouTubePlayer from 'react-player/lib/players/YouTube';
 import screenfull from 'screenfull';
-const windowGlobal = typeof window !== 'undefined' && window;
+const windowLocation = typeof window !== 'undefined' && window.location;
+const windowProtocol = typeof window !== 'undefined' && window.location.protocol;
 
 
 class VideoPlayer extends Component {
@@ -130,7 +131,7 @@ class VideoPlayer extends Component {
         <YouTubePlayer
           config={{
             youtube: {
-              playerVars: { modestbranding: 1, origin: windowGlobal.location, host: `${windowGlobal.location.protocol}https://www.youtube.com`},
+              playerVars: { modestbranding: 1, origin: windowLocation, host: `${windowProtocol}https://www.youtube.com`},
             },
           }}
           ref={this.ref}
