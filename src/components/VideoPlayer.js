@@ -128,7 +128,7 @@ class VideoPlayer extends Component {
         <YouTubePlayer
           config={{
             youtube: {
-              playerVars: { modestbranding: 1 },
+              playerVars: { modestbranding: 1, origin: window.location, host: `${window.location.protocol}https://www.youtube.com`},
             },
           }}
           ref={this.ref}
