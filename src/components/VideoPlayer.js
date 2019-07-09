@@ -107,6 +107,7 @@ class VideoPlayer extends Component {
       this.setState(state);
     }
   };
+
   render() {
     const {
       url,
@@ -125,6 +126,11 @@ class VideoPlayer extends Component {
     return (
       <div className="player-wrapper">
         <YouTubePlayer
+          config={{
+            youtube: {
+              playerVars: { modestbranding: 1 },
+            },
+          }}
           ref={this.ref}
           className="react-player"
           width="100%"

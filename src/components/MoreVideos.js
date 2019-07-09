@@ -1,25 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
-
+import axios from 'axios';
 
 import './index.css';
-
-const INITIAL_QUERY = graphql`
-  query initialLoadQuery {
-    allYoutubeVideo(limit: 6) {
-      edges {
-        node {
-          videoId
-          title
-          thumbnail {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
 
 const Video = styled.div`
   .video {
@@ -31,9 +14,9 @@ const Video = styled.div`
     font-size: 1.5em;
     background-color: #111111;
     border: 1px solid black;
-    -webkit-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
-    box-shadow: 4px 6px 5px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 6px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 6px 5px -2px rgba(0, 0, 0, 0.75);
 
     position: relative;
   }
@@ -41,17 +24,16 @@ const Video = styled.div`
   .video-thumbnail {
     height: 350px;
     width: 500px;
-    
   }
 
   .video-title {
     align-self: center;
-    padding: 0.25em 1em .5em 1em;
+    padding: 0.25em 1em 0.5em 1em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 500px;
-    
+
     border-top: 2px solid var(--yellow);
     position: absolute;
     bottom: 0;
@@ -63,7 +45,7 @@ const Video = styled.div`
 
   .video-title:hover {
     max-height: 100%;
-    background-color: rgba(17, 17, 17, .85);
+    background-color: rgba(17, 17, 17, 0.85);
     white-space: normal;
     overflow: visible;
     color: white;
@@ -71,13 +53,7 @@ const Video = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 650px) {
-
-  }
-
-
   @media (max-width: 525px) {
-
     .video-thumbnail {
       width: 300px;
       height: 225px;
@@ -89,7 +65,6 @@ const Video = styled.div`
   }
 
   @media (max-width: 445px) {
-
     .video-thumbnail {
       width: 260px;
       height: 155px;
@@ -101,34 +76,75 @@ const Video = styled.div`
   }
 `;
 
-const VideoListing = () => (
-  <StaticQuery
-    query={INITIAL_QUERY}
-    render={({ allYoutubeVideo }) =>
-      allYoutubeVideo.edges.map(({ node }) => (
-        <Video key={node.videoId}>
-          <div className="video">
-            <img
-              src={node.thumbnail.url}
-              alt="video thumbnail"
-              className="video-thumbnail"
-            />
-            <div className="video-title">{node.title}</div>
-          </div>
-        </Video>
-      ))
-    }
-  />
-);
+class MoreVideos extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videoID: '',
+      videoThumbnail: '',
+      videoTitle: '',
+      loading: false,
+      error: false,
+      videos: [],
+      showMore: false,
+    };
+  }
 
-const MoreVideos = () => (
-  <div className="wrapper">
-    <h2 className="more-videos-header">More Videos</h2>
-    <div className="more-videos">
-      <VideoListing />
-    </div>
-    <div className="show-more">Show More //</div>
-  </div>
-);
+  componentDidMount() {
+    this.fetchYoutubeData();
+  }
+
+  fetchYoutubeData = () => {
+    this.setState({ loading: true });
+    axios
+    .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.YOUTUBE_API_KEY}`)
+    .then(data => {
+      this.setState({
+        loading: false,
+        videos: data.data.items
+      });
+    })
+    .catch(error => {
+      this.setState({ loading: false, error })
+    })
+  };
+
+  playVideo = (id) => {
+    console.log('id: ' + id);
+  }
+
+  showMore = () => {
+    console.log("SHOW MORE");
+    this.setState({
+      showMore: !this.state.showMore
+    });
+  }
+
+  render() {
+    // TODO: Delete console log when finished
+    console.log(this.state);
+    const videos = this.state.showMore ? this.state.videos : this.state.videos.slice(0, 6);
+    return (
+      <div className='wrapper'>
+        <h2 className='more-videos-header'>More Videos</h2>
+        <div className='more-videos'>
+          {videos.map(video => (
+            <Video key={video.contentDetails.videoId}>
+              <div className='video'>
+                <img
+                  src={video.snippet.thumbnails.high.url}
+                  alt='video thumbnail'
+                  className='video-thumbnail'
+                />
+                <div className='video-title' onClick={() => this.playVideo(video.contentDetails.videoId)}>{video.snippet.title}</div>
+              </div>
+            </Video>
+          ))}
+        </div>
+        <div className='show-more' onClick={() => this.showMore()}>{!this.state.showMore ? 'Show More //' : 'Show Less'}</div>
+      </div>
+    )
+  }
+}
 
 export default MoreVideos;
