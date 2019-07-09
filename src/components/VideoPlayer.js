@@ -13,8 +13,7 @@ import { findDOMNode } from 'react-dom';
 import YouTubePlayer from 'react-player/lib/players/YouTube';
 import screenfull from 'screenfull';
 const windowLocation = typeof window !== 'undefined' && window.location;
-const windowProtocol =
-  typeof window !== 'undefined' && window.location.protocol;
+const windowProtocol = typeof window !== 'undefined' && window.location.protocol;
 
 class VideoPlayer extends Component {
   constructor(props) {
