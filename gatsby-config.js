@@ -1,4 +1,6 @@
 const path = require('path');
+let env = process.env.NODE_ENV || 'development' || 'production';
+require('dotenv').config({path: `./.env.${env}`}); 
 
 module.exports = {
   siteMetadata: {
@@ -19,9 +21,17 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
+          include: /assets\/svg/,
           include: path.resolve(__dirname, 'src/assets/svg'),
+          include: /assets(\/|\\)svg/
         }
       }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
