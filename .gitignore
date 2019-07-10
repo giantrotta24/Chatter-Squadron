@@ -57,6 +57,7 @@ typings/
 .env.development
 .env.production
 
+
 # gatsby files
 .cache/
 public
