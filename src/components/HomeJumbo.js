@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import LogoStyled from './Logo';
+import VideoPlayer from './VideoPlayer';
 
 import BackgroundImage from 'gatsby-background-image';
 
@@ -10,7 +11,7 @@ import './index.css';
 // import logo from '../images/ChatterSquadronLogo.png';
 
 
-const HomeJumbo = () => (
+const HomeJumbo = (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -26,6 +27,8 @@ const HomeJumbo = () => (
     render={data => {
       // Set ImageData.
       let imageData = data.smokeField.childImageSharp.fluid;
+      let clickedId = props.idFromParent ? props.idFromParent : 'PY9XvIA6L6s&t';
+      // console.log(clickedId);
       return (
         <BackgroundImage
           Tag="section"
@@ -34,18 +37,11 @@ const HomeJumbo = () => (
           backgroundColor={`hsla(0, 0%, 7%, 0.8)`}
           fadeIn={`soft`}
         >
-          <h2 className="vid-player-header">Featured Video</h2>
+          <h2 className="vid-player-header">Now Playing</h2>
           <div className="jumbotron jumbotron-fluid">
             <div className="home-jumbo">
               <LogoStyled />
-              <iframe
-                id="homeVideo"
-                title="youtube-embed"
-                src="https://www.youtube.com/embed/cdcmoyAzY88"
-                frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <VideoPlayer videoId={`https://www.youtube.com/watch?v=${clickedId}`}/>
             </div>
           </div>
         </BackgroundImage>

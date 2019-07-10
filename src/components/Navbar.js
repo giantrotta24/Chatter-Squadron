@@ -1,6 +1,13 @@
 import React from 'react';
 import logo from '../images/ChatterSquadronLogo.png';
 
+// Functions and features of the Menu:
+
+// Patreon link (https://www.patreon.com/ChatterSquadron)
+// Facebook subscribe link
+// Youtube Subscribe Link
+// Instagram Follow
+// Twitter Follow
 export const Navbar = () => {
   function toggleExpand() {
     const button = document.querySelector('button[aria-expanded]');
@@ -16,10 +23,9 @@ export const Navbar = () => {
       </a>
       <button onClick={toggleExpand} aria-expanded='false' aria-controls='menu-list'>
         <span className="open">☰</span>
-        {/* <span class="close">×</span> */}
       </button>
       <ul>
-        <li>
+        {/* <li>
           <a href="">
             <i className='nav-icon fas fa-desktop ltgreen'/>
             Video
@@ -30,33 +36,39 @@ export const Navbar = () => {
             <i className='nav-icon far fa-play-circle orange'/>
             Audio
           </a>
-        </li>
+        </li> */}
         <li>
-          <a href="">
+          <a href='https://www.facebook.com/chattersquadron/' target='_blank'>
             <i className='nav-icon fab fa-facebook-f blue'/>
             Facebook
           </a>
         </li>
         <li>
-          <a href="">
+          <a href='https://twitter.com/chattersquadron' target='_blank'>
             <i className='nav-icon fab fa-twitter ltblue'/>
             Twitter
           </a>
         </li>
         <li>
-          <a href="">
+          <a href='https://www.instagram.com/chattersquadron/' target='_blank'>
             <i className='nav-icon fab fa-instagram darkred'/>
             Instagram
           </a>
         </li>
         <li>
-          <a href="">
+          <a href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='_blank'>
             <i className='nav-icon fab fa-youtube red'/>
             YouTube
           </a>
         </li>
         <li>
-          <a href="">
+          <a href='https://www.patreon.com/ChatterSquadron' target='_blank'>
+          <i className='nav-icon fab fa-patreon orange' />
+            Patreon
+          </a>
+        </li>
+        <li>
+          <a href='http://chattersquadron.libsyn.com/rss' target='_blank'>
             <i className='nav-icon fas fa-rss green'/>
             RSS
           </a>
