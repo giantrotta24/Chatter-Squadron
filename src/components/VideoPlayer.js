@@ -36,14 +36,14 @@ class VideoPlayer extends Component {
     };
   }
 
-  /*
+  
 
-  Find video player width and hold value
-  Listen for video player width to change
-  On video width change, check for breakpoint value (max-width: 992px)
-  If <= max-width: 992px then hide styled controls (display: none)
-  Display default youtube controls
-  this.state controls = true.
+  // Find video player width and hold value
+  // Listen for video player width to change
+  // On video width change, check for breakpoint value (max-width: 992px)
+  // If <= max-width: 992px then hide styled controls (display: none)
+  // Display default youtube controls
+  // this.state controls = true.
 
   componentDidMount = () => {
     this.setState({
@@ -66,7 +66,7 @@ class VideoPlayer extends Component {
   determineControls = () => {
 
   }
-  */
+
 
   playPause = () => {
     this.setState({ playing: !this.state.playing });
@@ -159,10 +159,10 @@ class VideoPlayer extends Component {
           onEnded={this.onEnded}
           onError={e => console.log('onError', e)}
         />
-        {/* <div className="video-controls">
-          <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
+        <div className="video-controls">
+          {/* <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button> */}
           <button onClick={this.onClickFullscreen}>Fullscreen</button>
-          <label htmlFor="volume">Volume</label>
+          {/* <label htmlFor="volume">Volume</label>
           <input
             id="volume"
             type="range"
@@ -178,8 +178,8 @@ class VideoPlayer extends Component {
             type="checkbox"
             checked={muted}
             onChange={this.toggleMuted}
-          />
-        </div> */}
+          /> */}
+        </div>
       </div>
     );
   }

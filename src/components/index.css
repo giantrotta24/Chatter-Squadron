@@ -220,9 +220,9 @@ img {
     display: none;
   }
 
-  .video-controls {
+  /* .video-controls {
     display: none;
-  }
+  } */
 
   .react-player {
     padding-bottom: 25px;
@@ -250,6 +250,10 @@ img {
     height: 300px;
   }
 }
+
+.video-controls {
+    display: block;
+  }
 
 /* More Videos Section */
 .wrapper {
@@ -369,6 +373,10 @@ img {
   padding-bottom: 0;
   background-color: white;
 }
+
+/* .video-controls {
+  display: none;
+} */
 
 @media (max-width: 992px) {
   .wrapper-pod {
