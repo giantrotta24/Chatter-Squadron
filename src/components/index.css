@@ -309,7 +309,16 @@ img {
   }
 
   .more-videos {
-    grid-template-columns: 100vw;
+    grid-auto-flow: column;
+    /* grid-template-columns: 100vw; */
+    /* grid-template-columns: repeat(auto-fill, 300px); */
+    overflow-x: scroll;
+    width: auto;
+    /* grid-gap: 20px; */
+    grid-template-columns: repeat(50, 300px);
+    grid-template-rows: minmax(150px, 1fr);
+    margin: auto 10px;
+    padding-bottom: 20px;
   }
 }
 
@@ -321,7 +330,7 @@ img {
   }
 
   .more-videos {
-    grid-template-columns: 100vw;
+    /* grid-template-columns: 100vw; */
     /* grid-auto-flow: row; */
   }
 }

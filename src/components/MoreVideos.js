@@ -54,6 +54,10 @@ const Video = styled.div`
     cursor: pointer;
   }
 
+  @media (max-width: 992px) {
+    
+  }
+
   @media (max-width: 525px) {
     .video-thumbnail {
       width: 400px;
