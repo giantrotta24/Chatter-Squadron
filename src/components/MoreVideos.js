@@ -55,17 +55,17 @@ const Video = styled.div`
   }
 
   @media (max-width: 992px) {
-    
+
   }
 
-  @media (max-width: 525px) {
+  @media (max-width: 550px) {
     .video-thumbnail {
       width: 400px;
       height: 325px;
     }
 
     .video-title {
-      width: 400px;
+      width: 100%;
       font-size: 0.6em;
     }
   }
@@ -77,7 +77,7 @@ const Video = styled.div`
     }
 
     .video-title {
-      width: 300px;
+      width: 100%;
       
     }
   }

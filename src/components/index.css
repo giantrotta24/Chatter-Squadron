@@ -315,7 +315,7 @@ img {
     overflow-x: scroll;
     width: auto;
     /* grid-gap: 20px; */
-    grid-template-columns: repeat(50, 300px);
+    grid-template-columns: repeat(50, 500px);
     grid-template-rows: minmax(150px, 1fr);
     margin: auto 10px;
     padding-bottom: 20px;
@@ -331,6 +331,15 @@ img {
 
   .more-videos {
     /* grid-template-columns: 100vw; */
+    grid-template-columns: repeat(50, 400px);
+    /* grid-auto-flow: row; */
+  }
+}
+
+@media (max-width: 445px) {
+  .more-videos {
+    /* grid-template-columns: 100vw; */
+    grid-template-columns: repeat(50, 300px);
     /* grid-auto-flow: row; */
   }
 }
