@@ -54,26 +54,31 @@ const Video = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 525px) {
+  @media (max-width: 992px) {
+
+  }
+
+  @media (max-width: 550px) {
     .video-thumbnail {
-      width: 300px;
-      height: 225px;
+      width: 400px;
+      height: 325px;
     }
 
     .video-title {
-      width: 300px;
+      width: 100%;
+      font-size: 0.6em;
     }
   }
 
   @media (max-width: 445px) {
     .video-thumbnail {
-      width: 160px;
-      height: 155px;
+      width: 300px;
+      height: 225px
     }
 
     .video-title {
-      width: 160px;
-      font-size: 0.6em;
+      width: 100%;
+      
     }
   }
 `;
