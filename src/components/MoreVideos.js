@@ -62,18 +62,18 @@ const Video = styled.div`
 
     .video-title {
       width: 300px;
+      font-size: 0.6em;
     }
   }
 
   @media (max-width: 445px) {
     .video-thumbnail {
-      width: 160px;
-      height: 155px;
+      width: 300px;
     }
 
     .video-title {
-      width: 160px;
-      font-size: 0.6em;
+      width: 300px;
+      
     }
   }
 `;
