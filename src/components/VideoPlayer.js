@@ -132,7 +132,10 @@ class VideoPlayer extends Component {
           config={{
             youtube: {
               playerVars: {
+                playsinline: 1,
+                iv_load_policy: 3,
                 modestbranding: 1,
+                showinfo: 1,
                 origin: windowLocation,
                 host: `${windowProtocol}https://www.youtube.com`,
               },
