@@ -162,10 +162,10 @@ class VideoPlayer extends Component {
           onEnded={this.onEnded}
           onError={e => console.log('onError', e)}
         />
-        <div className="video-controls">
-          {/* <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button> */}
+        {/* <div className="video-controls">
+          <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
           <button onClick={this.onClickFullscreen}>Fullscreen</button>
-          {/* <label htmlFor="volume">Volume</label>
+          <label htmlFor="volume">Volume</label>
           <input
             id="volume"
             type="range"
@@ -181,8 +181,8 @@ class VideoPlayer extends Component {
             type="checkbox"
             checked={muted}
             onChange={this.toggleMuted}
-          /> */}
-        </div>
+          />
+        </div> */}
       </div>
     );
   }
