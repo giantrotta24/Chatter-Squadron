@@ -56,12 +56,12 @@ const Video = styled.div`
 
   @media (max-width: 525px) {
     .video-thumbnail {
-      width: 300px;
-      height: 225px;
+      width: 400px;
+      height: 325px;
     }
 
     .video-title {
-      width: 300px;
+      width: 400px;
       font-size: 0.6em;
     }
   }
@@ -69,6 +69,7 @@ const Video = styled.div`
   @media (max-width: 445px) {
     .video-thumbnail {
       width: 300px;
+      height: 225px
     }
 
     .video-title {
