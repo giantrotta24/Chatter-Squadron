@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+// import { render } from 'react-dom';
+import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 import axios from 'axios';
 
 import './index.css';
-
 
 const Video = styled.div`
   .video {
@@ -55,7 +56,6 @@ const Video = styled.div`
   }
 
   @media (max-width: 992px) {
-
   }
 
   @media (max-width: 550px) {
@@ -73,12 +73,11 @@ const Video = styled.div`
   @media (max-width: 445px) {
     .video-thumbnail {
       width: 300px;
-      height: 225px
+      height: 225px;
     }
 
     .video-title {
       width: 100%;
-      
     }
   }
 `;
@@ -90,64 +89,129 @@ class MoreVideos extends Component {
       loading: false,
       error: false,
       videos: [],
+      hasMore: true,
+      nextPageToken: null,
       showMore: false,
     };
+
+    // Binds our scroll event handler
+    window.onscroll = debounce(() => {
+      const {
+        fetchYoutubeData,
+        state: { error, loading, hasMore },
+      } = this;
+
+      // Bails early if:
+      // * there's an error
+      // * it's already loading
+      // * there's nothing left to load
+      if (error || loading || !hasMore) return;
+
+      // Checks that the container has been scrolled to the bottom
+      if (
+        window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight
+      ) {
+        // console.log(this.state.nextPageToken);
+        fetchYoutubeData(this.state.nextPageToken, this.state.hasMore);
+      }
+    }, 100);
   }
 
-  componentDidMount() {
-    this.fetchYoutubeData();
+  componentWillMount() {
+    // Loads initial 25 videos on load
+    this.fetchYoutubeData(null, this.state.hasMore);
   }
 
-  fetchYoutubeData = () => {
-    this.setState({ loading: true });
-    axios
-    .get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`)
-    .then(data => {
-      this.setState({
-        loading: false,
-        videos: data.data.items
-      });
-    })
-    .catch(error => {
-      this.setState({ loading: false, error })
-    })
+
+  /*
+  if there is a nextPageToken, grab for state
+  update API URL with new page token
+  add new videos to videos state
+  call fetchYoutubeData with new page token when reaching 25 videos to load next 25
+  when reaching last video hasMore = false, display "no more videos to load message", stop fetching data
+  handle background stretching issue 
+  */
+
+  fetchYoutubeData = (nextPageToken, hasMore) => {
+    // console.log(nextPageToken);
+    let API_URL = '';
+    let pageToken = '';
+    if (nextPageToken != null && hasMore) {
+      pageToken = nextPageToken;
+      API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&${pageToken}&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
+    } else {
+      API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
+    }
+    let nextVideos = [];
+    this.setState({ loading: true }, () => {
+      axios
+        .get(API_URL)
+        .then(data => {
+          // Merges the next videos into our existing videos
+          nextVideos = data.data.items;
+
+          
+          this.setState({
+            loading: false,
+            videos: [...this.state.videos, ...nextVideos],
+            nextPageToken: data.data.nextPageToken, // Find out why nextPageToken is only repeating through first two page tokens.
+            // Determine if there is no new nextPageToken and set hasMore state to false
+          });
+          console.log(this.state.videos);
+          console.log(this.state.nextPageToken);
+
+        })
+        .catch(error => {
+          this.setState({ loading: false, error });
+        });
+    });
   };
 
-  grabId = (id) => {
+  grabId = id => {
     this.props.callbackFromParent(id);
-  }
+  };
 
   showMore = () => {
-    console.log("SHOW MORE");
+    console.log('SHOW MORE');
     this.setState({
-      showMore: !this.state.showMore
+      showMore: !this.state.showMore,
     });
-  }
+  };
 
   render() {
     // TODO: Delete console log when finished
     // console.log(this.state);
-    const videos = this.state.showMore ? this.state.videos : this.state.videos.slice(0, 6);
+    const videos = this.state.showMore
+      ? this.state.videos
+      : this.state.videos.slice(0, 6);
     return (
-      <div className='wrapper'>
-        <h2 className='more-videos-header'>More Videos</h2>
-        <div className='more-videos'>
+      <div className="wrapper">
+        <h2 className="more-videos-header">More Videos</h2>
+        <div className="more-videos">
           {videos.map(video => (
             <Video key={video.contentDetails.videoId}>
-              <div className='video'>
+              <div className="video">
                 <img
                   src={video.snippet.thumbnails.high.url}
-                  alt='video thumbnail'
-                  className='video-thumbnail'
+                  alt="video thumbnail"
+                  className="video-thumbnail"
                 />
-                <div className='video-title' onClick={() => this.grabId(video.contentDetails.videoId)}>{video.snippet.title}</div>
+                <div
+                  className="video-title"
+                  onClick={() => this.grabId(video.contentDetails.videoId)}
+                >
+                  {video.snippet.title}
+                </div>
               </div>
             </Video>
           ))}
         </div>
-        <div className='show-more' onClick={() => this.showMore()}>{!this.state.showMore ? 'Show More' : 'Show Less'}</div>
+        <div className="show-more" onClick={() => this.showMore()}>
+          {!this.state.showMore ? 'Show More' : 'Show Less'}
+        </div>
       </div>
-    )
+    );
   }
 }
 
