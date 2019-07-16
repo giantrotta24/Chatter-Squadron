@@ -145,7 +145,7 @@ class MoreVideos extends Component {
             </Video>
           ))}
         </div>
-        <div className='show-more' onClick={() => this.showMore()}>{!this.state.showMore ? 'Show More //' : 'Show Less'}</div>
+        <div className='show-more' onClick={() => this.showMore()}>{!this.state.showMore ? 'Show More' : 'Show Less'}</div>
       </div>
     )
   }

@@ -320,6 +320,27 @@ img {
     margin: auto 10px;
     padding-bottom: 20px;
   }
+
+  .show-more {
+    background: var(--niceblack);
+    padding: 10px 30px;
+    color: var(--yellow);
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    font-style: normal;
+    text-transform: uppercase;
+    -webkit-box-shadow: 2px 3px 2px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 3px 2px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 3px 2px -1px rgba(0, 0, 0, 0.75);
+
+  }
+
+  .show-more:hover {
+    color: var(--yellow);
+  }
+
 }
 
 @media (max-width: 550px) {
@@ -410,7 +431,7 @@ img {
 
 @media (max-width: 575px) {
   .my-4 {
-    width: 95vw;
+    width: 100vw;
     margin: 0;
     padding: 0;
   }
@@ -419,7 +440,7 @@ img {
     padding: 0;
     margin: auto;
     padding-bottom: 30px;
-    width: 95vw;
+    width: 100vw;
   }
 }
 
