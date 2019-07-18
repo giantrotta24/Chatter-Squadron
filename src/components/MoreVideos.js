@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { render } from 'react-dom';
 import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -91,12 +90,12 @@ class MoreVideos extends Component {
       videos: [],
       hasMore: true,
       showMore: false,
+      nextPageToken: '',
     };
 
     // Binds our scroll event handler
     window.onscroll = debounce(() => {
       const {
-        fetchYoutubeData,
         state: { error, loading, hasMore },
       } = this;
 
@@ -109,46 +108,43 @@ class MoreVideos extends Component {
       // Checks that the container has been scrolled to the bottom
       if (
         window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
+          document.documentElement.offsetHeight &&
+        this.state.showMore
       ) {
-        // console.log(this.state.nextPageToken);
-        fetchYoutubeData();
+        this.nextPage(this.state.nextPageToken);
       }
     }, 100);
   }
 
-  /*
-  if there is a nextPageToken, grab for state
-  update API URL with new page token
-  add new videos to videos state
-  call fetchYoutubeData with new page token when reaching 25 videos to load next 25
-  when reaching last video hasMore = false, display "no more videos to load message", stop fetching data
-  handle background stretching issue 
-  */
-
   componentDidMount() {
-    // Loads initial 25 videos on load
-    this.fetchYoutubeData();
-  }
-
-  renderData = data => {
-    this.setState({
-      loading: false,
-      videos: [...this.state.videos, ...data]
+    // Loads initial 6 videos
+    let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=6&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
+    this.setState({ loading: true }, () => {
+      axios
+        .get(API_URL)
+        .then(data => {
+          this.setState({
+            loading: false,
+            videos: data.data.items,
+          });
+        })
+        .catch(error => {
+          this.setState({ loading: false, error });
+        });
     });
   }
 
   nextPage = token => {
     if (this.state.hasMore) {
-      console.log('next page : ' + token);
+      // console.log('next page : ' + token);
       this.nextFetch(token);
     } else {
-      console.log('we already reached the last page!');
+      // console.log('we already reached the last page!');
     }
   };
 
   nextFetch = token => {
-    console.log('next fetch')
+    // console.log('next fetch');
     let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&pageToken=${token}&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
     let nextVideos = [];
     this.setState({ loading: true }, () => {
@@ -159,15 +155,12 @@ class MoreVideos extends Component {
           nextVideos = data.data.items;
           this.setState({
             loading: false,
-            videos: [...this.state.videos, ...nextVideos]
+            videos: [...this.state.videos, ...nextVideos],
           });
 
-          // console.log(data.data.items);
-          // console.log(data.data.nextPageToken);
           if (data.data.nextPageToken) {
-            console.log('go to token : ' + data.data.nextPageToken);
-            // this.renderData(videos);
-            this.nextPage(data.data.nextPageToken);
+            // console.log('go to token : ' + data.data.nextPageToken);
+            this.setState({ nextPageToken: data.data.nextPageToken });
           } else {
             console.log('no pages left');
             this.setState({ hasMore: false });
@@ -180,27 +173,28 @@ class MoreVideos extends Component {
   };
 
   fetchYoutubeData = () => {
-    console.log('initial fetch')
+    console.log('initial fetch');
     let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
     let nextVideos = [];
     this.setState({ loading: true }, () => {
       axios
         .get(API_URL)
         .then(data => {
-          // console.log(data.data.items);
           // Merges the next videos into our existing videos
           nextVideos = data.data.items;
           this.setState({
             loading: false,
-            videos: [...this.state.videos, ...nextVideos]
+            videos: nextVideos,
           });
 
           if (data.data.nextPageToken) {
-            console.log('go to token : ' + data.data.nextPageToken);
-            // this.renderData(videos);
-            this.nextPage(data.data.nextPageToken);
+            // console.log('go to token : ' + data.data.nextPageToken);
+            this.setState({
+              nextPageToken: data.data.nextPageToken,
+              hasMore: true,
+            });
           } else {
-            console.log('no page left');
+            // console.log('no page left');
             this.setState({ hasMore: false });
           }
         })
@@ -215,15 +209,17 @@ class MoreVideos extends Component {
   };
 
   showMore = () => {
-    console.log('SHOW MORE');
+    // console.log('SHOW MORE');
     this.setState({
       showMore: !this.state.showMore,
     });
+    this.fetchYoutubeData();
   };
 
   render() {
     // TODO: Delete console log when finished
     // console.log(this.state);
+    // const videos = this.state.videos;
     const videos = this.state.showMore
       ? this.state.videos
       : this.state.videos.slice(0, 6);
@@ -248,12 +244,8 @@ class MoreVideos extends Component {
               </div>
             </Video>
           ))}
-          {this.state.error && 
-            <div>{this.state.error}</div>
-          }
-          {this.state.loading &&
-            <div className="video-title">Loading...</div>
-          }
+          {this.state.error && <div>{this.state.error}</div>}
+          {this.state.loading && <div className="video-title">Loading...</div>}
         </div>
         <div className="show-more" onClick={() => this.showMore()}>
           {!this.state.showMore ? 'Show More' : 'Show Less'}
