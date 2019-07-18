@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
-import { window, document } from 'browser-monads';
+// import { window, document } from 'browser-monads';
 import styled from 'styled-components';
 import axios from 'axios';
+// const window = typeof window !== 'undefined' && window;
+// // const windowInnerHeight = typeof window !== 'undefined' && window.innerHeight;
+// const documentScrollTop =
+//   typeof document !== 'undefined' && document.documentElement.scrollTop;
+// const documentOffsetHeight =
+//   typeof document !== 'undefined' && document.documentElement.offsetHeight;
 
 import './index.css';
 
@@ -93,28 +99,6 @@ class MoreVideos extends Component {
       showMore: false,
       nextPageToken: '',
     };
-
-    // Binds our scroll event handler
-    window.onscroll = debounce(() => {
-      const {
-        state: { error, loading, hasMore },
-      } = this;
-
-      // Bails early if:
-      // * there's an error
-      // * it's already loading
-      // * there's nothing left to load
-      if (error || loading || !hasMore) return;
-
-      // Checks that the container has been scrolled to the bottom
-      if (
-        window.innerHeight + document.documentElement.scrollTop ===
-          document.documentElement.offsetHeight &&
-        this.state.showMore
-      ) {
-        this.nextPage(this.state.nextPageToken);
-      }
-    }, 100);
   }
 
   componentDidMount() {
@@ -133,6 +117,26 @@ class MoreVideos extends Component {
           this.setState({ loading: false, error });
         });
     });
+    // Binds our scroll event handler
+    window.onscroll = debounce(() => {
+      const {
+        state: { error, loading, hasMore },
+      } = this;
+
+      // Bails early if:
+      // * there's an error
+      // * it's already loading
+      // * there's nothing left to load
+      if (error || loading || !hasMore) return;
+
+      // Checks that the container has been scrolled to the bottom
+      if (
+        window.innerHeight + document.scrollTop === document.offsetHeight &&
+        this.state.showMore
+      ) {
+        this.nextPage(this.state.nextPageToken);
+      }
+    }, 100);
   }
 
   nextPage = token => {
