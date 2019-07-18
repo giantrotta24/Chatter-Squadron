@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import debounce from 'lodash.debounce';
+if (typeof window !== `undefined`) {
+  import debounce from 'lodash.debounce';
+}
 import styled from 'styled-components';
 import axios from 'axios';
 
