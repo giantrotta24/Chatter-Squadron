@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 import axios from 'axios';
 const windowInnerHeight = typeof window !== 'undefined' && window.innerHeight;
-const window = typeof window !== 'undefined' && window.onscroll;
+const window = window !== 'undefined' && window.onscroll;
 const documentScrollTop =
   typeof document !== 'undefined' && document.documentElement.scrollTop;
 const documentOffsetHeight =
