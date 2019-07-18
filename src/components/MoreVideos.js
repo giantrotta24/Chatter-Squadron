@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
-import { window, document } from 'browser-monads';
+// import { window, document } from 'browser-monads';
 import styled from 'styled-components';
 import axios from 'axios';
+const windowInnerHeight = typeof window !== 'undefined' && window.innerHeight;
+const windowOnScroll = typeof window !== 'undefined' && window.onscroll;
+const documentScrollTop =
+  typeof document !== 'undefined' && document.documentElement.scrollTop;
+const documentOffsetHeight =
+  typeof document !== 'undefined' && document.documentElement.offsetHeight;
 
 import './index.css';
 
@@ -95,7 +101,7 @@ class MoreVideos extends Component {
     };
 
     // Binds our scroll event handler
-    window.onscroll = debounce(() => {
+    windowOnScroll = debounce(() => {
       const {
         state: { error, loading, hasMore },
       } = this;
@@ -108,8 +114,7 @@ class MoreVideos extends Component {
 
       // Checks that the container has been scrolled to the bottom
       if (
-        window.innerHeight + document.documentElement.scrollTop ===
-          document.documentElement.offsetHeight &&
+        windowInnerHeight + documentScrollTop === documentOffsetHeight &&
         this.state.showMore
       ) {
         this.nextPage(this.state.nextPageToken);
