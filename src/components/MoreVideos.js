@@ -102,7 +102,7 @@ class MoreVideos extends Component {
 
     // Binds our scroll event handler
 
-    if (window !== undefined) {
+    if (window !== 'undefined') {
       window.onscroll = debounce(() => {
         const {
           state: { error, loading, hasMore },
@@ -122,6 +122,8 @@ class MoreVideos extends Component {
           this.nextPage(this.state.nextPageToken);
         }
       }, 100);
+    } else {
+      return;
     }
   }
 
