@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-if (typeof window !== `undefined`) {
-  import debounce from 'lodash.debounce';
-}
+import debounce from 'lodash.debounce';
+import { window, document } from 'browser-monads';
 import styled from 'styled-components';
 import axios from 'axios';
 
