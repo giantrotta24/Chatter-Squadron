@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 import axios from 'axios';
 const windowInnerHeight = typeof window !== 'undefined' && window.innerHeight;
-const windowOnScroll = typeof window !== 'undefined' && window.onscroll;
+const window = typeof window !== 'undefined' && window.onscroll;
 const documentScrollTop =
   typeof document !== 'undefined' && document.documentElement.scrollTop;
 const documentOffsetHeight =
@@ -101,7 +101,7 @@ class MoreVideos extends Component {
     };
 
     // Binds our scroll event handler
-    windowOnScroll = debounce(() => {
+    window = debounce(() => {
       const {
         state: { error, loading, hasMore },
       } = this;
