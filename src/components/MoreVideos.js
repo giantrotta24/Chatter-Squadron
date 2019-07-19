@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
-// import { window, document } from 'browser-monads';
 import styled from 'styled-components';
 import axios from 'axios';
-// const window = typeof window !== 'undefined' && window;
-// // const windowInnerHeight = typeof window !== 'undefined' && window.innerHeight;
-// const documentScrollTop =
-//   typeof document !== 'undefined' && document.documentElement.scrollTop;
-// const documentOffsetHeight =
-//   typeof document !== 'undefined' && document.documentElement.offsetHeight;
 
 import './index.css';
 
@@ -31,7 +24,6 @@ const Video = styled.div`
 
   .video-thumbnail {
     height: 350px;
-    width: 500px;
   }
 
   .video-title {
@@ -99,9 +91,42 @@ class MoreVideos extends Component {
       showMore: false,
       nextPageToken: '',
     };
+
+
   }
 
   componentDidMount() {
+    this.onLoadFetch();
+    if (typeof window !== 'undefined') {
+      this.debounceEvent();
+    }
+  }
+
+  debounceEvent = () => {
+    // Binds our scroll event handler
+    console.log('debounce scroll');
+    window.onscroll = debounce(() => {
+      const {
+        state: { error, loading, hasMore },
+      } = this;
+
+      // Bails early if:
+      // * there's an error
+      // * it's already loading
+      // * there's nothing left to load
+      if (error || loading || !hasMore) return;
+
+      // Checks that the container has been scrolled to the bottom
+      if (
+        window.innerHeight + document.documentElement.scrollTop  === document.documentElement.offsetHeight &&
+        this.state.showMore
+      ) {
+        this.nextPage(this.state.nextPageToken);
+      }
+    }, 100);
+  };
+
+  onLoadFetch = () => {
     // Loads initial 6 videos
     let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=6&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
     this.setState({ loading: true }, () => {
@@ -117,39 +142,19 @@ class MoreVideos extends Component {
           this.setState({ loading: false, error });
         });
     });
-    // Binds our scroll event handler
-    window.onscroll = debounce(() => {
-      const {
-        state: { error, loading, hasMore },
-      } = this;
-
-      // Bails early if:
-      // * there's an error
-      // * it's already loading
-      // * there's nothing left to load
-      if (error || loading || !hasMore) return;
-
-      // Checks that the container has been scrolled to the bottom
-      if (
-        window.innerHeight + document.scrollTop === document.offsetHeight &&
-        this.state.showMore
-      ) {
-        this.nextPage(this.state.nextPageToken);
-      }
-    }, 100);
-  }
+  };
 
   nextPage = token => {
     if (this.state.hasMore) {
-      // console.log('next page : ' + token);
+      console.log('next page : ' + token);
       this.nextFetch(token);
     } else {
-      // console.log('we already reached the last page!');
+      console.log('we already reached the last page!');
     }
   };
 
   nextFetch = token => {
-    // console.log('next fetch');
+    console.log('next fetch');
     let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&pageToken=${token}&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
     let nextVideos = [];
     this.setState({ loading: true }, () => {
@@ -164,8 +169,9 @@ class MoreVideos extends Component {
           });
 
           if (data.data.nextPageToken) {
-            // console.log('go to token : ' + data.data.nextPageToken);
+            console.log('go to token : ' + data.data.nextPageToken);
             this.setState({ nextPageToken: data.data.nextPageToken });
+            // this.nextPage(this.state.nextPageToken);
           } else {
             console.log('no pages left');
             this.setState({ hasMore: false });
@@ -198,6 +204,7 @@ class MoreVideos extends Component {
               nextPageToken: data.data.nextPageToken,
               hasMore: true,
             });
+            // this.nextPage(this.state.nextPageToken);
           } else {
             // console.log('no page left');
             this.setState({ hasMore: false });
@@ -218,7 +225,9 @@ class MoreVideos extends Component {
     this.setState({
       showMore: !this.state.showMore,
     });
-    this.fetchYoutubeData();
+    if (this.state.showMore == false) {
+      this.fetchYoutubeData();
+    }
   };
 
   render() {
@@ -228,6 +237,7 @@ class MoreVideos extends Component {
     const videos = this.state.showMore
       ? this.state.videos
       : this.state.videos.slice(0, 6);
+
     return (
       <div className="wrapper">
         <h2 className="more-videos-header">More Videos</h2>
