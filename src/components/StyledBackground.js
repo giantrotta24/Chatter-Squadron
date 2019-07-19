@@ -28,7 +28,7 @@ const BackgroundSection = ({children, className }) => (
           backgroundColor={`#111111`}
           fadeIn={`soft`}
           style={{
-            backgroundRepeat: '',
+            backgroundRepeat: 'no-repeat',
             backgroundSize: '',
             backgroundPosition: 'hidden'
           }}
