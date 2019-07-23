@@ -80,6 +80,24 @@ const Video = styled.div`
   }
 `;
 
+const LoadingIcon = styled.div`
+  margin-top: 3rem;
+  text-align: center;
+  grid-column: 1 / -1;
+
+  @media (max-width: 992px) {
+    grid-column: auto;
+    grid-row: 1 / -1;
+    margin: auto;
+    display: flex;
+
+    i {
+      margin: auto;
+      margin-right: 5rem;
+    }
+  }
+`;
+
 class MoreVideos extends Component {
   constructor(props) {
     super(props);
@@ -260,7 +278,8 @@ class MoreVideos extends Component {
             </Video>
           ))}
           {this.state.error && <div>{this.state.error}</div>}
-          {this.state.loading && <div className="video-title">Loading...</div>}
+          {/* this.state.loading &&  */}
+        {this.state.loading && <LoadingIcon><i className="fas fa-5x fa-spinner fa-pulse"/></LoadingIcon>} 
         </div>
         <div className="show-more" onClick={() => this.showMore()}>
           {!this.state.showMore ? 'Show More' : 'Show Less'}
