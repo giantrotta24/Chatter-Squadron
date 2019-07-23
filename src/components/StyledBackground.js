@@ -10,7 +10,7 @@ const BackgroundSection = ({children, className }) => (
       query {
         starfield: file(relativePath: { eq: "8k-starfield.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 2000) {
+            fluid(quality: 100, maxWidth: 4000) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -28,9 +28,9 @@ const BackgroundSection = ({children, className }) => (
           backgroundColor={`#111111`}
           fadeIn={`soft`}
           style={{
-            backgroundRepeat: 'no-repeat',
+            backgroundRepeat: 'repeat-y',
             backgroundSize: '',
-            backgroundPosition: 'hidden'
+            backgroundPosition: ''
           }}
         >
           {children}
@@ -45,6 +45,9 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   min-height: calc(100vh - 100px);
   background-position: center;
   background-repeat: repeat-y;
+  -webkit-background-repeat: repeat-y;
+  -moz-background-repeat: repeat-y;
+  -o-background-repeat: repeat-y;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

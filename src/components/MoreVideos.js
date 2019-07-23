@@ -124,6 +124,7 @@ class MoreVideos extends Component {
     // Binds our scroll event handler
     console.log('debounce scroll');
     window.onscroll = debounce(() => {
+      // console.log('scrolling');
       const {
         state: { error, loading, hasMore },
       } = this;
@@ -135,10 +136,12 @@ class MoreVideos extends Component {
       if (error || loading || !hasMore) return;
 
       // Checks that the container has been scrolled to the bottom
+      console.log(this.state.nextPageToken);
       if (
-        window.innerHeight + document.documentElement.scrollTop  === document.documentElement.offsetHeight &&
+        window.innerHeight + (document.documentElement.scrollTop || document.body.scrollTop)  === (document.documentElement.offsetHeight || document.body.scrollTop) &&
         this.state.showMore
       ) {
+        console.log('scrolling');
         this.nextPage(this.state.nextPageToken);
       }
     }, 100);
