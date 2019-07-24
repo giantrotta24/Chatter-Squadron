@@ -220,10 +220,6 @@ img {
     display: none;
   }
 
-  /* .video-controls {
-    display: none;
-  } */
-
   .react-player {
     padding-bottom: 25px;
   }
@@ -275,7 +271,7 @@ img {
 .more-videos {
   grid-template-columns: 100vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 20px;
   justify-items: center;
 }
@@ -315,7 +311,7 @@ img {
     overflow-x: scroll;
     width: auto;
     /* grid-gap: 20px; */
-    grid-template-columns: repeat(50, 500px);
+    grid-template-columns: repeat(500, 400px);
     grid-template-rows: minmax(150px, 1fr);
     margin: auto 10px;
     padding-bottom: 20px;
