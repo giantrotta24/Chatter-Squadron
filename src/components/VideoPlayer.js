@@ -119,9 +119,6 @@ class VideoPlayer extends Component {
       volume,
       muted,
       loop,
-      played,
-      loaded,
-      duration,
       playbackRate,
       pip,
     } = this.state;
