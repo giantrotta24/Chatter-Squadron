@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../images/ChatterSquadronLogo.png';
 
+
+// TODO: Get image using graphql?
 export const MobileBrand = () => {
   return (
     <div className='mobile-brand'>
