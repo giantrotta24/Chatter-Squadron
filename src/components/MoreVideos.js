@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
 import styled from 'styled-components';
+import Transition from 'react-transition-group/Transition';
+import { defaultStyle, transitionStyles } from '../transitions';
 import axios from 'axios';
 
 import './index.css';
@@ -109,8 +111,6 @@ class MoreVideos extends Component {
       showMore: false,
       nextPageToken: '',
     };
-
-
   }
 
   componentDidMount() {
@@ -138,7 +138,9 @@ class MoreVideos extends Component {
       // Checks that the container has been scrolled to the bottom
       console.log(this.state.nextPageToken);
       if (
-        window.innerHeight + (document.documentElement.scrollTop || document.body.scrollTop)  === (document.documentElement.offsetHeight || document.body.scrollTop) &&
+        window.innerHeight +
+          (document.documentElement.scrollTop || document.body.scrollTop) ===
+          (document.documentElement.offsetHeight || document.body.scrollTop) &&
         this.state.showMore
       ) {
         console.log('scrolling');
@@ -246,7 +248,7 @@ class MoreVideos extends Component {
     this.setState({
       showMore: !this.state.showMore,
     });
-    if (this.state.showMore == false) {
+    if (this.state.showMore === false) {
       this.fetchYoutubeData();
     }
   };
@@ -264,25 +266,41 @@ class MoreVideos extends Component {
         <h2 className="more-videos-header">More Videos</h2>
         <div className="more-videos">
           {videos.map(video => (
-            <Video key={video.contentDetails.videoId}>
-              <div className="video">
-                <img
-                  src={video.snippet.thumbnails.high.url}
-                  alt="video thumbnail"
-                  className="video-thumbnail"
-                />
+            <Transition in appear={true} timeout={300}>
+              {state => (
                 <div
-                  className="video-title"
-                  onClick={() => this.grabId(video.contentDetails.videoId)}
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
                 >
-                  {video.snippet.title}
+                  <Video key={video.contentDetails.videoId}>
+                    <div className="video">
+                      <img
+                        src={video.snippet.thumbnails.high.url}
+                        alt="video thumbnail"
+                        className="video-thumbnail"
+                      />
+                      <div
+                        className="video-title"
+                        onClick={() =>
+                          this.grabId(video.contentDetails.videoId)
+                        }
+                      >
+                        {video.snippet.title}
+                      </div>
+                    </div>
+                  </Video>
                 </div>
-              </div>
-            </Video>
+              )}
+            </Transition>
           ))}
           {this.state.error && <div>{this.state.error}</div>}
-          {/* this.state.loading &&  */}
-        {this.state.loading && <LoadingIcon><i className="fas fa-5x fa-spinner fa-pulse"/></LoadingIcon>} 
+          {this.state.loading && (
+            <LoadingIcon>
+              <i className="fas fa-5x fa-spinner fa-pulse" />
+            </LoadingIcon>
+          )}
         </div>
         <div className="show-more" onClick={() => this.showMore()}>
           {!this.state.showMore ? 'Show More' : 'Show Less'}

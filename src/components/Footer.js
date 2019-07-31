@@ -22,8 +22,8 @@ const Footer = () => {
         <li className="social"><a className="footer-link"href="https://twitter.com/chattersquadron"><TwitterLogo className="social-icons"/></a></li>
         <li className="social"><a className="footer-link"href="https://www.instagram.com/chattersquadron/"><InstagramLogo className="social-icons"/></a></li>
         <li className="social"><a className="footer-link"href="https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g"><YoutubeLogo className="social-icons"/></a></li>
-        <li className="social"><a className="footer-link"href="#"><PatreonLogo className="social-icons"/></a></li>
-        <li className="social"><a className="footer-link"href="#"><RssLogo className="social-icons"/></a></li>
+        <li className="social"><a className="footer-link"href="https://www.patreon.com/ChatterSquadron"><PatreonLogo className="social-icons"/></a></li>
+        <li className="social"><a className="footer-link"href="http://chattersquadron.libsyn.com/rss"><RssLogo className="social-icons"/></a></li>
         <li className="db-cp">
           {' '}
           Made by <a className="footer-link"href="#">Dev Boys©</a>
