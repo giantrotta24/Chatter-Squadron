@@ -2,7 +2,7 @@
   "name": "chatter-squadron-hub",
   "private": true,
   "description": "Your home for Star Wars fun & positivity.",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "author": "Gianfranco Trotta, Dylan Thomson, Nick Yopko, Brett Bender, Matt Urian",
   "dependencies": {
     "axios": "^0.19.0",
