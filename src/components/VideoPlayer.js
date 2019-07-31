@@ -36,14 +36,14 @@ class VideoPlayer extends Component {
     };
   }
 
-  /*
+  
 
-  Find video player width and hold value
-  Listen for video player width to change
-  On video width change, check for breakpoint value (max-width: 992px)
-  If <= max-width: 992px then hide styled controls (display: none)
-  Display default youtube controls
-  this.state controls = true.
+  // Find video player width and hold value
+  // Listen for video player width to change
+  // On video width change, check for breakpoint value (max-width: 992px)
+  // If <= max-width: 992px then hide styled controls (display: none)
+  // Display default youtube controls
+  // this.state controls = true.
 
   componentDidMount = () => {
     this.setState({
@@ -66,7 +66,7 @@ class VideoPlayer extends Component {
   determineControls = () => {
 
   }
-  */
+
 
   playPause = () => {
     this.setState({ playing: !this.state.playing });
@@ -119,9 +119,6 @@ class VideoPlayer extends Component {
       volume,
       muted,
       loop,
-      played,
-      loaded,
-      duration,
       playbackRate,
       pip,
     } = this.state;
@@ -132,7 +129,10 @@ class VideoPlayer extends Component {
           config={{
             youtube: {
               playerVars: {
+                playsinline: 1,
+                iv_load_policy: 3,
                 modestbranding: 1,
+                showinfo: 1,
                 origin: windowLocation,
                 host: `${windowProtocol}https://www.youtube.com`,
               },

@@ -3,6 +3,8 @@ import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import LogoStyled from './Logo';
 import VideoPlayer from './VideoPlayer';
+import Transition from 'react-transition-group/Transition';
+import { defaultStyle, transitionStyles } from '../transitions';
 
 import BackgroundImage from 'gatsby-background-image';
 
@@ -10,8 +12,7 @@ import './index.css';
 
 // import logo from '../images/ChatterSquadronLogo.png';
 
-
-const HomeJumbo = (props) => (
+const HomeJumbo = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -41,7 +42,20 @@ const HomeJumbo = (props) => (
           <div className="jumbotron jumbotron-fluid">
             <div className="home-jumbo">
               <LogoStyled />
-              <VideoPlayer videoId={`https://www.youtube.com/watch?v=${clickedId}`}/>
+              <Transition in appear={true} timeout={1000}>
+                {state => (
+                  <div
+                    style={{
+                      ...defaultStyle,
+                      ...transitionStyles[state],
+                    }}
+                  >
+                    <VideoPlayer
+                      videoId={`https://www.youtube.com/watch?v=${clickedId}`}
+                    />
+                  </div>
+                )}
+              </Transition>
             </div>
           </div>
         </BackgroundImage>

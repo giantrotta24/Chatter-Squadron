@@ -38,37 +38,37 @@ export const Navbar = () => {
           </a>
         </li> */}
         <li>
-          <a href='https://www.facebook.com/chattersquadron/' target='_blank'>
+          <a href='https://www.facebook.com/chattersquadron/' target='_blank' rel="noopener noreferrer">
             <i className='nav-icon fab fa-facebook-f blue'/>
             Facebook
           </a>
         </li>
         <li>
-          <a href='https://twitter.com/chattersquadron' target='_blank'>
+          <a href='https://twitter.com/chattersquadron' target='_blank' rel="noopener noreferrer">
             <i className='nav-icon fab fa-twitter ltblue'/>
             Twitter
           </a>
         </li>
         <li>
-          <a href='https://www.instagram.com/chattersquadron/' target='_blank'>
+          <a href='https://www.instagram.com/chattersquadron/' target='_blank' rel="noopener noreferrer">
             <i className='nav-icon fab fa-instagram darkred'/>
             Instagram
           </a>
         </li>
         <li>
-          <a href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='_blank'>
+          <a href='https://www.youtube.com/channel/UCq3EOOv6Kk62OyJpjwKzH-g' target='_blank' rel="noopener noreferrer">
             <i className='nav-icon fab fa-youtube red'/>
             YouTube
           </a>
         </li>
         <li>
-          <a href='https://www.patreon.com/ChatterSquadron' target='_blank'>
+          <a href='https://www.patreon.com/ChatterSquadron' target='_blank' rel="noopener noreferrer">
           <i className='nav-icon fab fa-patreon orange' />
             Patreon
           </a>
         </li>
         <li>
-          <a href='http://chattersquadron.libsyn.com/rss' target='_blank'>
+          <a href='http://chattersquadron.libsyn.com/rss' target='_blank' rel="noopener noreferrer">
             <i className='nav-icon fas fa-rss green'/>
             RSS
           </a>
