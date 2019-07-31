@@ -1,13 +1,6 @@
 import React from 'react';
 import logo from '../images/ChatterSquadronLogo.png';
 
-// Functions and features of the Menu:
-
-// Patreon link (https://www.patreon.com/ChatterSquadron)
-// Facebook subscribe link
-// Youtube Subscribe Link
-// Instagram Follow
-// Twitter Follow
 export const Navbar = () => {
   function toggleExpand() {
     const button = document.querySelector('button[aria-expanded]');
@@ -25,18 +18,6 @@ export const Navbar = () => {
         <span className="open">☰</span>
       </button>
       <ul>
-        {/* <li>
-          <a href="">
-            <i className='nav-icon fas fa-desktop ltgreen'/>
-            Video
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <i className='nav-icon far fa-play-circle orange'/>
-            Audio
-          </a>
-        </li> */}
         <li>
           <a href='https://www.facebook.com/chattersquadron/' target='_blank' rel="noopener noreferrer">
             <i className='nav-icon fab fa-facebook-f blue'/>
