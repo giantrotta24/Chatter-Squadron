@@ -122,7 +122,6 @@ class MoreVideos extends Component {
 
   debounceEvent = () => {
     // Binds our scroll event handler
-    console.log('debounce scroll');
     window.onscroll = debounce(() => {
       const {
         state: { error, loading, hasMore },
