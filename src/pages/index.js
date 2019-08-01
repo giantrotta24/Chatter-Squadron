@@ -18,8 +18,8 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" />
-        <div className="main-grid">
+        <SEO title='Home' />
+        <div className='main-grid'>
           <JumboStyled idFromParent={this.state.nextVideoId}/>
           <PodcastPlayer />
           <MoreVideos callbackFromParent={this.grabId} />
@@ -28,16 +28,5 @@ class IndexPage extends React.Component {
     );
   }
 }
-
-// const IndexPage = () => (
-//   <Layout>
-//     <SEO title="Home" />
-//     <div className="main-grid">
-//       <JumboStyled />
-//       <PodcastPlayer />
-//       <MoreVideos />
-//     </div>
-//   </Layout>
-// );
 
 export default IndexPage;

@@ -22,8 +22,8 @@ const Logo = () => (
       // Set ImageData.
       let imageData = data.csLogo.childImageSharp.fluid;
       return (
-        <div id="logoPic">
-          <Img fluid={imageData} alt="chatter squadron logo" />
+        <div id='logoPic'>
+          <Img fluid={imageData} alt='chatter squadron logo' />
         </div>
       );
     }}

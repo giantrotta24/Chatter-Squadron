@@ -124,7 +124,6 @@ class MoreVideos extends Component {
     // Binds our scroll event handler
     console.log('debounce scroll');
     window.onscroll = debounce(() => {
-      // console.log('scrolling');
       const {
         state: { error, loading, hasMore },
       } = this;
@@ -136,14 +135,12 @@ class MoreVideos extends Component {
       if (error || loading || !hasMore) return;
 
       // Checks that the container has been scrolled to the bottom
-      console.log(this.state.nextPageToken);
       if (
         window.innerHeight +
           (document.documentElement.scrollTop || document.body.scrollTop) ===
           (document.documentElement.offsetHeight || document.body.scrollTop) &&
         this.state.showMore
       ) {
-        console.log('scrolling');
         this.nextPage(this.state.nextPageToken);
       }
     }, 100);
@@ -169,15 +166,11 @@ class MoreVideos extends Component {
 
   nextPage = token => {
     if (this.state.hasMore) {
-      console.log('next page : ' + token);
       this.nextFetch(token);
-    } else {
-      console.log('we already reached the last page!');
     }
   };
 
   nextFetch = token => {
-    console.log('next fetch');
     let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&pageToken=${token}&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
     let nextVideos = [];
     this.setState({ loading: true }, () => {
@@ -192,11 +185,8 @@ class MoreVideos extends Component {
           });
 
           if (data.data.nextPageToken) {
-            console.log('go to token : ' + data.data.nextPageToken);
             this.setState({ nextPageToken: data.data.nextPageToken });
-            // this.nextPage(this.state.nextPageToken);
           } else {
-            console.log('no pages left');
             this.setState({ hasMore: false });
           }
         })
@@ -207,7 +197,6 @@ class MoreVideos extends Component {
   };
 
   fetchYoutubeData = () => {
-    console.log('initial fetch');
     let API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=25&playlistId=UUq3EOOv6Kk62OyJpjwKzH-g&key=${process.env.GATSBY_YOUTUBE_API_KEY}`;
     let nextVideos = [];
     this.setState({ loading: true }, () => {
@@ -222,14 +211,11 @@ class MoreVideos extends Component {
           });
 
           if (data.data.nextPageToken) {
-            // console.log('go to token : ' + data.data.nextPageToken);
             this.setState({
               nextPageToken: data.data.nextPageToken,
               hasMore: true,
             });
-            // this.nextPage(this.state.nextPageToken);
           } else {
-            // console.log('no page left');
             this.setState({ hasMore: false });
           }
         })
@@ -244,7 +230,6 @@ class MoreVideos extends Component {
   };
 
   showMore = () => {
-    // console.log('SHOW MORE');
     this.setState({
       showMore: !this.state.showMore,
     });
@@ -254,17 +239,14 @@ class MoreVideos extends Component {
   };
 
   render() {
-    // TODO: Delete console log when finished
-    // console.log(this.state);
-    // const videos = this.state.videos;
     const videos = this.state.showMore
       ? this.state.videos
       : this.state.videos.slice(0, 6);
 
     return (
-      <div className="wrapper">
-        <h2 className="more-videos-header">More Videos</h2>
-        <div className="more-videos">
+      <div className='wrapper'>
+        <h2 className='more-videos-header'>More Videos</h2>
+        <div className='more-videos'>
           {videos.map(video => (
             <Transition in appear={true} timeout={300}>
               {state => (
@@ -275,14 +257,14 @@ class MoreVideos extends Component {
                   }}
                 >
                   <Video key={video.contentDetails.videoId}>
-                    <div className="video">
+                    <div className='video'>
                       <img
                         src={video.snippet.thumbnails.high.url}
-                        alt="video thumbnail"
-                        className="video-thumbnail"
+                        alt='video thumbnail'
+                        className='video-thumbnail'
                       />
                       <div
-                        className="video-title"
+                        className='video-title'
                         onClick={() =>
                           this.grabId(video.contentDetails.videoId)
                         }
@@ -298,11 +280,11 @@ class MoreVideos extends Component {
           {this.state.error && <div>{this.state.error}</div>}
           {this.state.loading && (
             <LoadingIcon>
-              <i className="fas fa-5x fa-spinner fa-pulse" />
+              <i className='fas fa-5x fa-spinner fa-pulse' />
             </LoadingIcon>
           )}
         </div>
-        <div className="show-more" onClick={() => this.showMore()}>
+        <div className='show-more' onClick={() => this.showMore()}>
           {!this.state.showMore ? 'Show More' : 'Show Less'}
         </div>
       </div>

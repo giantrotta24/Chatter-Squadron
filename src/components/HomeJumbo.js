@@ -10,8 +10,6 @@ import BackgroundImage from 'gatsby-background-image';
 
 import './index.css';
 
-// import logo from '../images/ChatterSquadronLogo.png';
-
 const HomeJumbo = props => (
   <StaticQuery
     query={graphql`
@@ -29,18 +27,17 @@ const HomeJumbo = props => (
       // Set ImageData.
       let imageData = data.smokeField.childImageSharp.fluid;
       let clickedId = props.idFromParent ? props.idFromParent : 'PY9XvIA6L6s&t';
-      // console.log(clickedId);
       return (
         <BackgroundImage
-          Tag="section"
+          Tag='section'
           className={'jumbo'}
           fluid={imageData}
           backgroundColor={`hsla(0, 0%, 7%, 0.8)`}
           fadeIn={`soft`}
         >
-          <h2 className="vid-player-header">Now Playing</h2>
-          <div className="jumbotron jumbotron-fluid">
-            <div className="home-jumbo">
+          <h2 className='vid-player-header'>Now Playing</h2>
+          <div className='jumbotron jumbotron-fluid'>
+            <div className='home-jumbo'>
               <LogoStyled />
               <Transition in appear={true} timeout={1000}>
                 {state => (

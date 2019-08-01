@@ -22,7 +22,7 @@ const BackgroundSection = ({children, className }) => (
       const imageData = data.starfield.childImageSharp.fluid;
       return (
         <BackgroundImage
-          Tag="section"
+          Tag='section'
           className={className}
           fluid={imageData}
           backgroundColor={`#111111`}
