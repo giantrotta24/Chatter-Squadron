@@ -122,7 +122,6 @@ class MoreVideos extends Component {
 
   debounceEvent = () => {
     // Binds our scroll event handler
-    console.log('debounce scroll');
     window.onscroll = debounce(() => {
       const {
         state: { error, loading, hasMore },
@@ -248,7 +247,7 @@ class MoreVideos extends Component {
         <h2 className='more-videos-header'>More Videos</h2>
         <div className='more-videos'>
           {videos.map(video => (
-            <Transition in appear={true} timeout={300}>
+            <Transition in appear={true} timeout={300} key={video.contentDetails.videoId}>
               {state => (
                 <div
                   style={{
