@@ -18,6 +18,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/assets/posts`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
